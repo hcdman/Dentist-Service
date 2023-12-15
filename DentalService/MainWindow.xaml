@@ -1,0 +1,26 @@
+﻿<Window x:Class="DentalService.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DentalService"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="600" WindowStartupLocation="CenterScreen">
+    <Canvas>
+        <Label Content="User Name" HorizontalAlignment="Left" Margin="195,123,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="200,163,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox Name="UserName" HorizontalAlignment="Left" Margin="265,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <TextBox Name="PassWord" HorizontalAlignment="Left" Margin="265,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+
+        <ComboBox Name="Role" Canvas.Left="265" Canvas.Top="197">
+            <ComboBoxItem Content="Dentist"/>
+            <ComboBoxItem IsSelected="True" Content="Admin"/>
+            <ComboBoxItem Content="Customer"/>
+            <ComboBoxItem Content="Employee"/>
+        </ComboBox>
+
+        <Button Content="Log in" HorizontalAlignment="Left" VerticalAlignment="Center" Click="Button_Click" Canvas.Left="275" Canvas.Top="234" FontWeight="Bold"/>
+        <Label Content="Role" Canvas.Left="207" Canvas.Top="194" FontWeight="Bold"/>
+
+    </Canvas>
+</Window>
