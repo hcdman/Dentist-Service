@@ -1,6 +1,7 @@
 ﻿using DentalService.Model;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -30,20 +31,21 @@ namespace DentalService
             InitializeComponent();
         }
 
-    
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = @"Server=.\SQLEXPRESS;
+            /*string connectionString = @"Server=.\SQLEXPRESS;
                                        Database = DentalClinicManagement;
-                                       Trusted_Connection = yes";
+                                       Trusted_Connection = yes";*/
+            var connectionString = ConfigurationManager.ConnectionStrings["DentalClinicManagementDbConnection"].ConnectionString;
             connection = new SqlConnection(connectionString);
             connection.Open();
             //get role 
-          
+
             ComboBoxItem typeItem = (ComboBoxItem)Role.SelectedItem;
             string role = typeItem.Content.ToString();
-      
+
             var sql = "";
             //check role
             switch (role)
@@ -61,7 +63,7 @@ namespace DentalService
                     sql = "select * from Employee a where a.PhoneNumber = @userName and a.EmployeePassword = @passWord ";
                     break;
             }
-           
+
             var command = new SqlCommand(sql, connection);
 
             //get username and password
@@ -70,14 +72,13 @@ namespace DentalService
             command.Parameters.Add("@userName", SqlDbType.VarChar).Value = userName;
             command.Parameters.Add("@passWord", SqlDbType.VarChar).Value = passWord;
             var reader = command.ExecuteReader();
-          
+
             if (reader.Read())
             {
                 switch (role)
                 {
                     case "Admin":
-                        
-                        var screen = new Admin();
+                        var screen = new Admin(userName);
                         this.Close();
                         screen.Show();
                         break;
@@ -85,9 +86,9 @@ namespace DentalService
                         int id = (int)reader["DentistID"];
                         string name = (string)reader["FullName"];
                         DentistM dentist = new DentistM(id, name);
-                        var screen_2 = new Dentist(connection,dentist);
+                        var screen_2 = new Dentist(connection, dentist);
                         this.Close();
-                        screen_2.Show(); 
+                        screen_2.Show();
                         break;
                     case "Customer":
                         int idC = (int)reader["CustomerID"];
@@ -104,14 +105,12 @@ namespace DentalService
                         this.Close();
                         screen_4.Show(); break;
                 }
-                
+
             }
             else
             {
                 MessageBox.Show("Thông tin tài khoản hoặc mật khẩu không chính xác !");
             }
-           
-
         }
     }
 }

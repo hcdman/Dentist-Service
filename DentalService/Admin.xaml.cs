@@ -1,35 +1,69 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace DentalService
 {
     /// <summary>
     /// Interaction logic for Admin.xaml
     /// </summary>
-    public partial class Admin : Window
+    
+    public partial class Admin : Window, INotifyPropertyChanged
     {
-        public Admin()
+        private string _userName;
+        public string UserName
+        {
+            get { return _userName; }
+            set
+            {
+                if (_userName != value)
+                {
+                    _userName = value;
+                    OnPropertyChanged(nameof(UserName));
+                }
+            }
+        }
+        public Admin(string userName)
         {
             InitializeComponent();
+            DataContext = this;
+            _userName = userName;
         }
 
+        public event PropertyChangedEventHandler? PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
             var screen = new MainWindow();
             this.Close();
             screen.Show();
+        }
+
+        private void ManageMedicine_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ManageServices_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ManageUsers_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CreateAccount_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

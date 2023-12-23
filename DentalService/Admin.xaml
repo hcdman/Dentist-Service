@@ -6,9 +6,17 @@
         xmlns:local="clr-namespace:DentalService"
         mc:Ignorable="d"
         Title="Admin" Height="450" Width="800" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Label Content="Welcome admin page" HorizontalAlignment="Left" Margin="320,119,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Button Content="Logout&#xD;&#xA;" HorizontalAlignment="Left" Margin="395,256,0,0" VerticalAlignment="Top" Click="Button_Click" Width="50" Height="25"/>
 
+    <Grid>
+        <Label Content="Admin Dashboard" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Margin="0,10,0,0"/>
+
+        <TextBlock Text="{Binding UserName}" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" FontWeight="Bold"/>
+
+        <Button Content="Quản lý kho thuốc" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="150" Height="40" Click="ManageMedicine_Click"/>
+        <Button Content="Quản lý dịch vụ" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Width="150" Height="40" Click="ManageServices_Click"/>
+        <Button Content="Quản lý người dùng" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="150" Height="40" Click="ManageUsers_Click"/>
+        <Button Content="Tạo account mới" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" Width="150" Height="40" Click="CreateAccount_Click"/>
+
+        <Button Content="Logout" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Width="80" Height="30" Click="Logout_Click"/>
     </Grid>
 </Window>
