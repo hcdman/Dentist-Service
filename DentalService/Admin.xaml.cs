@@ -58,12 +58,21 @@ namespace DentalService
 
         private void CreateAccount_Click(object sender, RoutedEventArgs e)
         {
-
+             //open Register.xaml
+             var screen = new RegisterAccount();
+             screen.Show();
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-
+            // close this window
+            var screen = new MainWindow();
+            //reset username and password
+            screen.UserName.Text = "";
+            screen.PassWord.Password = "";
+            // open MainWindow.xaml
+            screen.Show();
+            this.Close();
         }
     }
 }
