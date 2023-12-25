@@ -68,7 +68,7 @@ namespace DentalService
 
             //get username and password
             string userName = UserName.Text;
-            string passWord = PassWord.Text;
+            string passWord = PassWord.Password;
             command.Parameters.Add("@userName", SqlDbType.VarChar).Value = userName;
             command.Parameters.Add("@passWord", SqlDbType.VarChar).Value = passWord;
             var reader = command.ExecuteReader();
