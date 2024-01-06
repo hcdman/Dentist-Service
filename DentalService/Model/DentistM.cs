@@ -8,13 +8,30 @@ namespace DentalService.Model
 {
     public class DentistM
     {
+        public int DentistID { get; set; }
+        public string FullName { get; set; }
+        public string DentistAddress { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Birthday { get; set; }
+
+        //constructor with no parameters
+        public DentistM() { }
+
+        //constructor with id & name
         public DentistM(int id, string name)
         {
-            Id = id;
-            Name = name;
+            DentistID = id;
+            FullName = name;
         }
 
-        public int Id { get; set; }
-        public string Name { get; set; }
+        //constructor with id, name, address, phone number, birthday
+        public DentistM(int id, string name, string address, string phone, string birthday)
+        {
+            DentistID = id;
+            FullName = name;
+            DentistAddress = address;
+            PhoneNumber = phone;
+            Birthday = birthday;
+        }
     }
 }

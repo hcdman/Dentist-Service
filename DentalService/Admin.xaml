@@ -5,18 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DentalService"
         mc:Ignorable="d"
-        Title="Admin" Height="280" Width="453" WindowStartupLocation="CenterScreen">
+        Title="Admin" Height="Auto" Width="Auto" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
 
-    <Grid Margin="0,0,10,22">
-        <Label Content="Admin Dashboard" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Margin="0,10,0,0"/>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-        <TextBlock Text="{Binding UserName}" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <Button Content="Medicine Management" HorizontalAlignment="Left" Margin="26,177,0,0" VerticalAlignment="Top" Width="150" Height="40" Click="ManageMedicine_Click"/>
-        <Button Content="Service Management" Margin="26,110,267,0" VerticalAlignment="Top" Height="40" Click="ManageServices_Click"/>
-        <Button Content="User Management" HorizontalAlignment="Left" Margin="256,110,0,0" VerticalAlignment="Top" Width="150" Height="40" Click="ManageUsers_Click"/>
-        <Button Content="Create new account" HorizontalAlignment="Left" Margin="256,177,0,0" VerticalAlignment="Top" Width="150" Height="40" Click="CreateAccount_Click"/>
+        <Label Content="Admin Dashboard" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Margin="0,10,0,10"/>
 
-        <Button Content="Logout" HorizontalAlignment="Right" Margin="0,50,10,0" VerticalAlignment="Top" Width="80" Height="30" Click="Logout_Click"/>
+        <TextBlock Text="{Binding UserName}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="12" Foreground="Green"/>
+
+        <Button Content="Medicine Management" Grid.Column="0" Margin="99,54,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="142" Height="28" Click="ManageMedicine_Click" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <Button Content="Delete users" Grid.Row="2" Grid.Column="0" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="40" Click="DeleteUsers_Click"/>
+        <Button Content="Create new account" Grid.Row="2" Grid.Column="1" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="40" Click="CreateAccount_Click"/>
+
+        <Button Content="Logout" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="103,0,0,0" VerticalAlignment="Center" Width="67" Height="30" Click="Logout_Click"/>
     </Grid>
 </Window>

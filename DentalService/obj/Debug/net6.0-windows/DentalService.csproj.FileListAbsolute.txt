@@ -121,3 +121,7 @@ C:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\obj\Debug\net6.0-w
 C:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\obj\Debug\net6.0-windows\ref\DentalService.dll
 C:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\obj\Debug\net6.0-windows\RegisterAccount.g.cs
 C:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\obj\Debug\net6.0-windows\RegisterAccount.baml
+C:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\obj\Debug\net6.0-windows\DeleteUserScreen.g.cs
+C:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\obj\Debug\net6.0-windows\DeleteUserScreen.baml
+C:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\obj\Debug\net6.0-windows\DentalService.csproj.Fody.CopyLocal.cache
+C:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\obj\Debug\net6.0-windows\DentalService.csproj.Fody.RuntimeCopyLocal.cache
