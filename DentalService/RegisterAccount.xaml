@@ -5,61 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DentalService"
         mc:Ignorable="d"
-        Title="RegisterAccount" Height="450" Width="600"
+        Title="RegisterAccount" MinHeight="450" Width="600"
         WindowStartupLocation="CenterScreen">
 
-    <Grid Margin="20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MinWidth="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <!-- Loại Tài Khoản -->
-        <Label Content="Account Type:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontSize="20"/>
-        <ComboBox x:Name="AccountTypeComboBox" Grid.Row="0" Grid.Column="1" 
-                  SelectionChanged="AccountTypeComboBox_SelectionChanged" FontSize="20">
-            <ComboBoxItem IsSelected="True" Content="Customer" />
-            <ComboBoxItem Content="Dentist"/>
-            <ComboBoxItem Content="Employee"/>
-        </ComboBox>
+            <!-- Loại Tài Khoản -->
+            <Label Content="Account Type:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontSize="20" Margin="0,0,10,10"/>
+            <ComboBox x:Name="AccountTypeComboBox" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Stretch" Margin="0,0,0,10"/>
 
-        <!-- Họ Tên -->
-        <Label Content="Full Name:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontSize="20"/>
-        <TextBox x:Name="NameTextBox" Grid.Row="2" Grid.Column="1" Margin="0,5,0,5" FontSize="20"/>
+            <!-- Họ Tên -->
+            <Label Content="Full Name:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="20" Margin="0,0,10,10"/>
+            <TextBox x:Name="NameTextBox" Grid.Row="1" Grid.Column="1" FontSize="20" HorizontalAlignment="Stretch" Margin="0,0,0,10"/>
 
-        <!-- Số Điện Thoại -->
-        <Label Content="Phone Number:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" FontSize="20"/>
-        <TextBox x:Name="PhoneNumberTextBox" Grid.Row="4" Grid.Column="1" Margin="0,5,0,5" FontSize="20"/>
+            <!-- Số Điện Thoại -->
+            <Label Content="Phone Number:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontSize="20" Margin="0,0,10,10"/>
+            <TextBox x:Name="PhoneNumberTextBox" Grid.Row="2" Grid.Column="1" FontSize="20" HorizontalAlignment="Stretch" Margin="0,0,0,10"/>
 
-        <!-- Mật Khẩu -->
-        <Label Content="Password:" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" FontSize="20"/>
-        <PasswordBox x:Name="PasswordBox" Grid.Row="6" Grid.Column="1" Margin="0,5,0,5" FontSize="20"/>
+            <!-- Mật Khẩu -->
+            <Label Content="Password:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontSize="20" Margin="0,0,10,10"/>
+            <PasswordBox x:Name="PasswordBox" Grid.Row="3" Grid.Column="1" FontSize="20" HorizontalAlignment="Stretch" Margin="0,0,0,10"/>
 
-        <!-- Địa Chỉ -->
-        <Label Content="Address:" Grid.Row="8" Grid.Column="0" VerticalAlignment="Center" FontSize="20"/>
-        <TextBox x:Name="AddressTextBox" Grid.Row="8" Grid.Column="1" Margin="5,4,-5,4" FontSize="20"/>
+            <!-- Địa Chỉ -->
+            <Label Content="Address:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" FontSize="20" Margin="0,0,10,10"/>
+            <TextBox x:Name="AddressTextBox" Grid.Row="4" Grid.Column="1" FontSize="20" HorizontalAlignment="Stretch" Margin="0,0,0,10"/>
 
-        <!-- Ngày Sinh -->
-        <Label Content="Date of Birth:" Grid.Row="10" Grid.Column="0" VerticalAlignment="Center" FontSize="20"/>
-        <DatePicker x:Name="BirthDatePicker" Grid.Row="10" Grid.Column="1" Margin="0,5,0,5" FontSize="20"/>
+            <!-- Ngày Sinh -->
+            <Label Content="Date of Birth:" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" FontSize="20" Margin="0,0,10,10"/>
+            <DatePicker x:Name="BirthDatePicker" Grid.Row="5" Grid.Column="1" FontSize="20" HorizontalAlignment="Stretch" Margin="0,0,0,10"/>
 
-        <!-- Nút Đăng Ký -->
-        <Button Content="Register" Grid.Row="12" Grid.Column="1" 
-                HorizontalAlignment="Left" Margin="51,20,0,0" Width="161" Click="RegisterButton_Click" FontSize="30" FontWeight="Bold"/>
-    </Grid>
+            <!-- Nút Đăng Ký -->
+            <Button Content="Register" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Padding="10,5" Width="Auto" Height="Auto" Margin="0,20,0,0"/>
+        </Grid>
+    </ScrollViewer>
 </Window>

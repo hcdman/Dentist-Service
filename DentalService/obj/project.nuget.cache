@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HCGX6/9X6vD32QCYHDm7G7bxTpjNzYQwjQIEaA2upzQ7BIzMK7dhGuQ3iTvf4yhQ3fYEpIGwKB56sCamGiZ9CQ==",
+  "dgSpecHash": "nrdVf/t329CIQWWMyR6FExDMjv16riIhDX+EgwrtFXZvZDmGIzewl9k0oNXnwdeQeXfP6PjarZpYGh1cdLmGKQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\tantr\\OneDrive\\Desktop\\Dentist-Service\\DentalService\\DentalService.csproj",
   "expectedPackageFiles": [
@@ -24,6 +24,7 @@
     "C:\\Users\\tantr\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\tantr\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\tantr\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\tantr\\.nuget\\packages\\propertychanged.fody\\4.1.0\\propertychanged.fody.4.1.0.nupkg.sha512",
     "C:\\Users\\tantr\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\tantr\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\tantr\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

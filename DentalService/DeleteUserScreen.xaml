@@ -1,0 +1,74 @@
+﻿<Window x:Class="DentalService.DeleteUserScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DentalService"
+        mc:Ignorable="d"
+        Title="Delete User" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TabControl Name="TabControl" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Header="Dentist">
+                <DataGrid x:Name="DentistDataGrid" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding DentistID}"/>
+                        <DataGridTextColumn Header="Full Name" Binding="{Binding FullName}"/>
+                        <DataGridTextColumn Header="Dentist Address" Binding="{Binding DentistAddress}"/>
+                        <DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}"/>
+                        <DataGridTextColumn Header="Birth Day" Binding="{Binding Birthday}"/>
+                        <DataGridTemplateColumn Header="Actions">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Content="Delete" Click="Delete_Click" Margin="5"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Customer">
+                <DataGrid x:Name="CustomerDataGrid" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding CustomerID}"/>
+                        <DataGridTextColumn Header="Full Name" Binding="{Binding FullName}"/>
+                        <DataGridTextColumn Header="Customer Address" Binding="{Binding CustomerAddress}"/>
+                        <DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}"/>
+                        <DataGridTextColumn Header="Birth Day" Binding="{Binding Birthday}"/>
+                        <DataGridTemplateColumn Header="Actions">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Content="Delete" Click="Delete_Click" Margin="5"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Employee">
+                <DataGrid x:Name="EmployeeDataGrid" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding EmployeeID}"/>
+                        <DataGridTextColumn Header="Full Name" Binding="{Binding FullName}"/>
+                        <DataGridTextColumn Header="Employee Address" Binding="{Binding EmployeeAddress}"/>
+                        <DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}"/>
+                        <DataGridTextColumn Header="Birth Day" Binding="{Binding Birthday}"/>
+                        <DataGridTemplateColumn Header="Actions">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Content="Delete" Click="Delete_Click" Margin="5"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

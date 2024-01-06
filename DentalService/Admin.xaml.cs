@@ -46,19 +46,8 @@ namespace DentalService
 
         }
 
-        private void ManageServices_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ManageUsers_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void CreateAccount_Click(object sender, RoutedEventArgs e)
         {
-             //open Register.xaml
              var screen = new RegisterAccount();
              screen.Show();
         }
@@ -73,6 +62,12 @@ namespace DentalService
             // open MainWindow.xaml
             screen.Show();
             this.Close();
+        }
+
+        private void DeleteUsers_Click(object sender, RoutedEventArgs e)
+        {
+            var screen = new DeleteUserScreen();
+            screen.Show();
         }
     }
 }

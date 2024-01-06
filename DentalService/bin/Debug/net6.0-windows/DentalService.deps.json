@@ -10,6 +10,7 @@
         "dependencies": {
           "Fody": "6.8.0",
           "Microsoft.Data.SqlClient": "5.1.2",
+          "PropertyChanged.Fody": "4.1.0",
           "System.Data.SqlClient": "4.8.5"
         },
         "runtime": {
@@ -230,6 +231,11 @@
         }
       },
       "Microsoft.Win32.SystemEvents/6.0.0": {},
+      "PropertyChanged.Fody/4.1.0": {
+        "dependencies": {
+          "Fody": "6.8.0"
+        }
+      },
       "runtime.native.System.Data.SqlClient.sni/4.7.0": {
         "dependencies": {
           "runtime.win-arm64.runtime.native.System.Data.SqlClient.sni": "4.4.0",
@@ -551,6 +557,13 @@
       "sha512": "sha512-hqTM5628jSsQiv+HGpiq3WKBl2c8v1KZfby2J6Pr7pEPlK9waPdgEO6b8A/+/xn/yZ9ulv8HuqK71ONy2tg67A==",
       "path": "microsoft.win32.systemevents/6.0.0",
       "hashPath": "microsoft.win32.systemevents.6.0.0.nupkg.sha512"
+    },
+    "PropertyChanged.Fody/4.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6v+f9cI8YjnZH2WBHuOqWEAo8DFFNGFIdU8xD3AsL6fhV6Y8oAmVWd7XKk49t8DpeUBwhR/X+97+6Epvek0Y3A==",
+      "path": "propertychanged.fody/4.1.0",
+      "hashPath": "propertychanged.fody.4.1.0.nupkg.sha512"
     },
     "runtime.native.System.Data.SqlClient.sni/4.7.0": {
       "type": "package",
