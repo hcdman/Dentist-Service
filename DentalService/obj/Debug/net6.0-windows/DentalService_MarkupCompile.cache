@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\App.xaml
-7713589785
+10-1188463757
 
-12-1909028630
+16-837230889
 2111956944805
-Admin.xaml;Customer.xaml;DeleteUserScreen.xaml;Dentist.xaml;Employee.xaml;MainWindow.xaml;RegisterAccount.xaml;
+AddMedicineWindow.xaml;Admin.xaml;Customer.xaml;DeleteUserScreen.xaml;Dentist.xaml;Employee.xaml;MainWindow.xaml;ManageMedicineScreen.xaml;RegisterAccount.xaml;UpdateMedicineWindow.xaml;
 
 False
 

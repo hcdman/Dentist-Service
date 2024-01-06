@@ -125,3 +125,9 @@ C:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\obj\Debug\net6.0-w
 C:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\obj\Debug\net6.0-windows\DeleteUserScreen.baml
 C:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\obj\Debug\net6.0-windows\DentalService.csproj.Fody.CopyLocal.cache
 C:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\obj\Debug\net6.0-windows\DentalService.csproj.Fody.RuntimeCopyLocal.cache
+C:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\obj\Debug\net6.0-windows\ManageMedicineScreen.g.cs
+C:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\obj\Debug\net6.0-windows\ManageMedicineScreen.baml
+C:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\obj\Debug\net6.0-windows\AddMedicineWindow.g.cs
+C:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\obj\Debug\net6.0-windows\AddMedicineWindow.baml
+C:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\obj\Debug\net6.0-windows\UpdateMedicineWindow.g.cs
+C:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\obj\Debug\net6.0-windows\UpdateMedicineWindow.baml
