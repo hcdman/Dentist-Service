@@ -43,7 +43,8 @@ namespace DentalService
 
         private void ManageMedicine_Click(object sender, RoutedEventArgs e)
         {
-
+            var screen = new ManageMedicineScreen();
+            screen.Show();
         }
 
         private void CreateAccount_Click(object sender, RoutedEventArgs e)

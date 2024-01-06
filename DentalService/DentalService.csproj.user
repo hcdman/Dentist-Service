@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AddMedicineWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Admin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -22,11 +25,20 @@
     <Compile Update="Employee.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ManageMedicineScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="RegisterAccount.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UpdateMedicineWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AddMedicineWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Admin.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -45,7 +57,13 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ManageMedicineScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="RegisterAccount.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UpdateMedicineWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
