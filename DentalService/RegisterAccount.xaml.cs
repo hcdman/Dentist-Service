@@ -102,6 +102,7 @@ namespace DentalService
         }
         private void AccountTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
         }
     }
 }
