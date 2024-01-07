@@ -86,27 +86,51 @@ END
 
 
 -- Cập Nhật Thuốc
-CREATE PROCEDURE spUpdateMedicine
+USE [DentalClinicManagement]
+GO
+
+CREATE PROCEDURE [dbo].[spUpdateMedicine]
     @MedicineID int,
-    @MedicineName varchar(255),
     @ExpirationDate date,
     @QuantityOnStock int,
     @Prescription varchar(255),
     @Unit varchar(50),
+    @MedicineName varchar(255),
     @Price int,
     @Description text
 AS
 BEGIN
-    UPDATE Medicine
-    SET MedicineName = @MedicineName,
-        ExpirationDate = @ExpirationDate,
-        QuantityOnStock = @QuantityOnStock,
-        Prescription = @Prescription,
-        Unit = @Unit,
-        Price = @Price,
-        Description = @Description
-    WHERE MedicineID = @MedicineID
+    SET NOCOUNT ON;
+
+    BEGIN TRY
+        IF NOT EXISTS (SELECT 1 FROM [dbo].[Medicine] WHERE [MedicineID] = @MedicineID)
+        BEGIN
+            RAISERROR('No medicine found with the specified ID.', 16, 1);
+            RETURN;
+        END
+
+        UPDATE [dbo].[Medicine]
+        SET 
+            [ExpirationDate] = @ExpirationDate,
+            [QuantityOnStock] = @QuantityOnStock,
+            [Prescription] = @Prescription,
+            [Unit] = @Unit,
+            [MedicineName] = @MedicineName,
+            [Price] = @Price,
+            [Description] = @Description
+        WHERE [MedicineID] = @MedicineID;
+    END TRY
+    BEGIN CATCH
+        -- Handle any errors that occur during the update
+        DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
+        DECLARE @ErrorSeverity INT = ERROR_SEVERITY();
+        DECLARE @ErrorState INT = ERROR_STATE();
+
+        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
+    END CATCH
 END
+GO
+
 
 -- Xóa Thuốc Hết Hạn
 CREATE PROCEDURE spAllDeleteExpiredMedicine
@@ -139,3 +163,33 @@ BEGIN
     DELETE FROM Medicine
     WHERE MedicineID = @MedicineID
 END
+
+--
+
+CREATE PROCEDURE GetMedicineById
+    @MedicineID int
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    BEGIN TRY
+        IF EXISTS (SELECT 1 FROM Medicine WHERE MedicineID = @MedicineID)
+        BEGIN
+            SELECT * FROM Medicine WHERE MedicineID = @MedicineID;
+        END
+        ELSE
+        BEGIN
+            RAISERROR('No medicine found with the specified ID.', 16, 1);
+        END
+    END TRY
+    BEGIN CATCH
+        -- Handle any errors that occur
+        DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
+        DECLARE @ErrorSeverity INT = ERROR_SEVERITY();
+        DECLARE @ErrorState INT = ERROR_STATE();
+
+        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
+    END CATCH
+END
+GO
+
