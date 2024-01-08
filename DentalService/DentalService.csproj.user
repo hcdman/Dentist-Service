@@ -22,7 +22,10 @@
     <Compile Update="Dentist.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Employee.xaml.cs">
+    <Compile Update="Employee\CreateAppointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Employee\EditAppointment.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ManageMedicineScreen.xaml.cs">
@@ -51,7 +54,10 @@
     <Page Update="Dentist.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Employee.xaml">
+    <Page Update="Employee\CreateAppointment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Employee\EditAppointment.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

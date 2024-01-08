@@ -1,0 +1,97 @@
+﻿<Window x:Class="DentalService.Employee.EmployeeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DentalService.Employee"
+        mc:Ignorable="d"
+        Title="EmployeeWindow" Height="600" Width="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border BorderThickness="1" BorderBrush="Black" Background="DimGray">
+            <Grid  Margin="16 8 16 8" Height="32">
+                <Button  Width="120" Background="White" Click="LogoutButton_Click" Margin="16 0 0 0" HorizontalAlignment="Right" Content="Logout"/>
+
+                <TextBlock  FontSize="20" Background="Transparent" Margin="16 0 0 0" HorizontalAlignment="Center" Text ="Employee XXX"/>
+            </Grid>
+        </Border>
+
+        <Grid Background="White" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+
+                <ColumnDefinition Width="2*"/>
+
+            </Grid.ColumnDefinitions>
+            <Border BorderThickness="1" BorderBrush="Black">
+                <Grid Grid.Column="0" Margin="8 8 8 8" >
+                    <StackPanel>
+                        <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Customer</TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Full name: "/>
+                            <TextBlock FontWeight="Medium" FontSize="14" Text="Chu Van Tai"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 8 0 8">
+                            <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Birth Date: "/>
+                            <TextBlock FontWeight="Medium" FontSize="14" Text="2023/1/1: "/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Phone: "/>
+                            <TextBox FontSize="14" FontWeight="Medium" Text="123456789"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Margin="0 56 0 0">
+                            <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="New Customer? "/>
+                            <Button Margin="5" Width="120" Background="DodgerBlue" Foreground="White"  Height="32">Create Account</Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Border >
+
+
+            <ScrollViewer VerticalScrollBarVisibility="Hidden" Grid.Column="1">
+                <Border Grid.Row="0" BorderBrush="Black" BorderThickness="1">
+                    <Grid Margin="8 8 8 8">
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Customer Upcomming Appointment</TextBlock>
+                            <DataGrid  IsReadOnly="False" ItemsSource="{Binding Path=UpcommingAppointmentList}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Dentist" Width="*" />
+                                    <DataGridTextColumn Header="Appointment Date" Width="*"/>
+                                    <DataGridTextColumn Header="Appointment Time" Width="*"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Separator Margin="0 8 0 8"></Separator>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Button Width="130" Click="CreateAppointment_Click" Height="32">Create</Button>
+                                <RibbonSeparator Margin="8"/>
+                                <Button Width="130"  Height="32" Click="EditAppointment_Click">Edit</Button>
+                            </StackPanel>
+
+                            <Separator Margin="0 20 0 20" BorderThickness="2" BorderBrush="Black"></Separator>
+
+                            <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Unpay Treatement</TextBlock>
+                            <DataGrid  IsReadOnly="False" ItemsSource="{Binding Path=UnpayTreatment}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Dentist" Width="*" />
+                                    <DataGridTextColumn Header="Appointment Date" Width="*"/>
+                                    <DataGridTextColumn Header="Appointment Time" Width="*"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Separator Margin="0 8 0 8"></Separator>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Button Width="130" Click="InvoiceButton_Click" Height="32">Take Payment</Button>
+                                
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>
