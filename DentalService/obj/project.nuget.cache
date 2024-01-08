@@ -1,12 +1,19 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "bjVflxtnAJtTYUmlcsFqKAqTPemD2FsXq6huj508Xw6QUxH2XSBdU6UQ2FaqdnG0Q6RFu5CGncQVpyXs4uMFPw==",
+=======
+  "dgSpecHash": "SRZH/9HYwoeI651H20dYLqzNMW9IdUwCFnuwAsxrn7S489/t0yh/9A/8zMzdBSQJVi1LYhjXp/ZJ0xbbZ53ztg==",
+>>>>>>> main
   "success": true,
   "projectFilePath": "C:\\Users\\cvtai\\OneDrive\\Desktop\\Dentist-Service\\DentalService\\DentalService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cvtai\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\cvtai\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+<<<<<<< HEAD
     "C:\\Users\\cvtai\\.nuget\\packages\\communitytoolkit.mvvm\\8.2.2\\communitytoolkit.mvvm.8.2.2.nupkg.sha512",
+=======
+>>>>>>> main
     "C:\\Users\\cvtai\\.nuget\\packages\\fody\\6.8.0\\fody.6.8.0.nupkg.sha512",
     "C:\\Users\\cvtai\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\cvtai\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
