@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DentalService.Model;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,22 +21,29 @@ namespace DentalService.Employee
     /// </summary>
     public partial class EmployeeWindow : Window
     {
-        public EmployeeWindow()
+        public EmployeeWindow(SqlConnection cn, EmployeeM emp)
         {
             InitializeComponent();
         }
 
-        
 
-        private void DentisScheduleButton_Click(object sender, RoutedEventArgs e) {
 
+        private void CreateAppointment_Click(object sender, RoutedEventArgs e) {
+            var screen = new CreateAppointment();
+            screen.ShowDialog();
         }
 
-        private void CustomerButton_Click(object sender, RoutedEventArgs e) {
-
+        private void EditAppointment_Click(object sender, RoutedEventArgs e) {
+            var screen = new EditAppointment();
+            screen.ShowDialog();
         }
 
-        private void Content_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e) {
+        private void InvoiceButton_Click(object sender, RoutedEventArgs e) {
+            var screen = new Invoice();
+            screen.ShowDialog();
+        }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e) {
 
         }
     }

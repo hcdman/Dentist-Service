@@ -17,5 +17,8 @@ namespace DentalService.Model
         public int Price { get; set; }
 
         public string Description { get; set; }
+
+        public int SoldQuantity { get; set ; }
     }
 }
+    

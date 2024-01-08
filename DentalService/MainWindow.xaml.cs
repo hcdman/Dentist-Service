@@ -38,7 +38,7 @@ namespace DentalService
             /*string connectionString = @"Server=.\SQLEXPRESS;
                                        Database = DentalClinicManagement;
                                        Trusted_Connection = yes";*/
-            var connectionString = ConfigurationManager.ConnectionStrings["DentalClinicManagementDbConnection"].ConnectionString;
+            var connectionString = ConfigurationManager.ConnectionStrings["TaiMSIConnectionString"].ConnectionString;
             connection = new SqlConnection(connectionString);
             connection.Open();
             //get role 
@@ -101,7 +101,7 @@ namespace DentalService
                         int idE = (int)reader["EmployeeID"];
                         string nameE = (string)reader["FullName"];
                         EmployeeM emp = new EmployeeM(idE, nameE);
-                        var screen_4 = new Employee(connection, emp);
+                        var screen_4 = new Employee.EmployeeWindow(connection, emp);
                         this.Close();
                         screen_4.Show(); break;
                 }
