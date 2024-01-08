@@ -1,5 +1,6 @@
 ﻿
 
+<<<<<<< HEAD
 FC:\Users\cvtai\OneDrive\Desktop\Dentist-Service\DentalService\AddMedicineWindow.xaml;;
 FC:\Users\cvtai\OneDrive\Desktop\Dentist-Service\DentalService\Admin.xaml;;
 FC:\Users\cvtai\OneDrive\Desktop\Dentist-Service\DentalService\Customer.xaml;;
@@ -10,4 +11,9 @@ FC:\Users\cvtai\OneDrive\Desktop\Dentist-Service\DentalService\MainWindow.xaml;;
 FC:\Users\cvtai\OneDrive\Desktop\Dentist-Service\DentalService\ManageMedicineScreen.xaml;;
 FC:\Users\cvtai\OneDrive\Desktop\Dentist-Service\DentalService\RegisterAccount.xaml;;
 FC:\Users\cvtai\OneDrive\Desktop\Dentist-Service\DentalService\UpdateMedicineWindow.xaml;;
+=======
+FC:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\ManageMedicineScreen.xaml;;
+FC:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\RegisterAccount.xaml;;
+FC:\Users\tantr\OneDrive\Desktop\Dentist-Service\DentalService\UpdateMedicineWindow.xaml;;
+>>>>>>> 3ffed39b6460c4921b3fd8de0de91e4f540f572a
 
