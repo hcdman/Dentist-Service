@@ -35,10 +35,10 @@ namespace DentalService
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            /*string connectionString = @"Server=.\SQLEXPRESS;
+            string connectionString = @"Server=.\SQLEXPRESS;
                                        Database = DentalClinicManagement;
-                                       Trusted_Connection = yes";*/
-            var connectionString = ConfigurationManager.ConnectionStrings["TaiMSIConnectionString"].ConnectionString;
+                                       Trusted_Connection = yes";
+            //var connectionString = ConfigurationManager.ConnectionStrings["TaiMSIConnectionString"].ConnectionString;
             connection = new SqlConnection(connectionString);
             connection.Open();
             //get role 
@@ -72,45 +72,59 @@ namespace DentalService
             command.Parameters.Add("@userName", SqlDbType.VarChar).Value = userName;
             command.Parameters.Add("@passWord", SqlDbType.VarChar).Value = passWord;
             var reader = command.ExecuteReader();
-
-            if (reader.Read())
+            try
             {
-                switch (role)
+                if (reader.Read())
                 {
-                    case "Admin":
-                        var screen = new Admin(userName);
-                        this.Close();
-                        screen.Show();
-                        break;
-                    case "Dentist":
-                        int id = (int)reader["DentistID"];
-                        string name = (string)reader["FullName"];
-                        DentistM dentist = new DentistM(id, name);
-                        var screen_2 = new Dentist(connection, dentist);
-                        this.Close();
-                        screen_2.Show();
-                        break;
-                    case "Customer":
-                        int idC = (int)reader["CustomerID"];
-                        string nameC = (string)reader["FullName"];
-                        CustomerM cus = new CustomerM(idC, nameC);
-                        var screen_3 = new Customer(connection, cus);
-                        this.Close();
-                        screen_3.Show(); break;
-                    case "Employee":
-                        int idE = (int)reader["EmployeeID"];
-                        string nameE = (string)reader["FullName"];
-                        EmployeeM emp = new EmployeeM(idE, nameE);
-                        var screen_4 = new Employee.EmployeeWindow(connection, emp);
-                        this.Close();
-                        screen_4.Show(); break;
-                }
+                    switch (role)
+                    {
+                        case "Admin":
+                            var screen = new Admin(userName);
+                            this.Close();
+                            screen.Show();
+                            break;
+                        case "Dentist":
+                            int id = (int)reader["DentistID"];
+                            string name = (string)reader["FullName"];
+                            string address = (string)reader["DentistAddress"];
+                            string phone = (string)reader["PhoneNumber"];
+                            DateTime birthdayR = (DateTime)reader["BirthDay"];
+                            //string birthdayString = birthday.ToString("yyyy-MM-dd");
+                            string birthday = birthdayR.ToString("dd-MM-yyyy");
+                            DentistM dentist = new DentistM(id, name, address, phone, birthday);
+                            var screen_2 = new Dentist(connectionString, dentist);
+                            this.Close();
+                            reader.Close();
+                            screen_2.Show();
+                            break;
+                        case "Customer":
+                            int idC = (int)reader["CustomerID"];
+                            string nameC = (string)reader["FullName"];
+                            CustomerM cus = new CustomerM(idC, nameC);
+                            var screen_3 = new Customer(connection, cus);
+                            this.Close();
+                            screen_3.Show(); break;
+                        case "Employee":
+                            int idE = (int)reader["EmployeeID"];
+                            string nameE = (string)reader["FullName"];
+                            EmployeeM emp = new EmployeeM(idE, nameE);
+                            var screen_4 = new Employee.EmployeeWindow(connection, emp);
+                            this.Close();
+                            screen_4.Show(); break;
+                    }
 
+                }
+                else
+                {
+                    MessageBox.Show("Thông tin tài khoản hoặc mật khẩu không chính xác !");
+                }
             }
-            else
+            finally
             {
-                MessageBox.Show("Thông tin tài khoản hoặc mật khẩu không chính xác !");
+                connection.Close();
+                
             }
+            
         }
     }
 }

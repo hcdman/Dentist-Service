@@ -4,25 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\cvtai\OneDrive\Desktop\Dentist-Service\DentalService\obj\Debug\net6.0-windows\
+C:\Users\hoai0\source\repos\DBMS\Dentist-Service\DentalService\obj\Debug\net6.0-windows\
 DentalService
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\cvtai\OneDrive\Desktop\Dentist-Service\DentalService\App.xaml
-<<<<<<< HEAD
+C:\Users\hoai0\source\repos\DBMS\Dentist-Service\DentalService\App.xaml
 13-85921331
 
-25292968317
-2121347855708
+271265759796
+212891255812
 AddMedicineWindow.xaml;Admin.xaml;Customer.xaml;DeleteUserScreen.xaml;Dentist.xaml;Employee\CreateAppointment.xaml;Employee\EditAppointment.xaml;Employee\EmployeeWindow.xaml;Employee\Invoice.xaml;MainWindow.xaml;ManageMedicineScreen.xaml;RegisterAccount.xaml;UpdateMedicineWindow.xaml;
-=======
-10-1188463757
 
-18-671529427
-211-1922847134
-AddMedicineWindow.xaml;Admin.xaml;Customer.xaml;DeleteUserScreen.xaml;Dentist.xaml;Employee.xaml;MainWindow.xaml;ManageMedicineScreen.xaml;RegisterAccount.xaml;UpdateMedicineWindow.xaml;
->>>>>>> main
-
-False
+True
 
