@@ -35,10 +35,10 @@ namespace DentalService
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            /*string connectionString = @"Server=.\SQLEXPRESS;
+            string connectionString = @"Server=.\SQLEXPRESS;
                                        Database = DentalClinicManagement;
-                                       Trusted_Connection = yes";*/
-            var connectionString = ConfigurationManager.ConnectionStrings["TaiMSIConnectionString"].ConnectionString;
+                                       Trusted_Connection = yes";
+            //var connectionString = ConfigurationManager.ConnectionStrings["TaiMSIConnectionString"].ConnectionString;
             connection = new SqlConnection(connectionString);
             connection.Open();
             //get role 
@@ -93,7 +93,9 @@ namespace DentalService
                     case "Customer":
                         int idC = (int)reader["CustomerID"];
                         string nameC = (string)reader["FullName"];
-                        CustomerM cus = new CustomerM(idC, nameC);
+                        DateTime birthdayC = (DateTime)reader["Birthday"];
+                        string phoneNumberC = (string)reader["PhoneNumber"];
+                        CustomerM cus = new CustomerM(idC, nameC, birthdayC, phoneNumberC);
                         var screen_3 = new Customer(connection, cus);
                         this.Close();
                         screen_3.Show(); break;
