@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\ndnhattan\.nuget\packages\azure.core\1.25.0\lib\net5.0\Azure.Core.dll
 C:\Users\ndnhattan\.nuget\packages\azure.identity\1.7.0\lib\netstandard2.0\Azure.Identity.dll
 C:\Users\ndnhattan\.nuget\packages\communitytoolkit.mvvm\8.2.2\lib\net6.0\CommunityToolkit.Mvvm.dll
@@ -32,3 +33,39 @@ C:\Users\ndnhattan\.nuget\packages\system.text.encoding.codepages\6.0.0\lib\net6
 C:\Users\ndnhattan\.nuget\packages\system.text.encodings.web\6.0.0\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\ndnhattan\.nuget\packages\system.text.json\4.7.2\lib\netcoreapp3.0\System.Text.Json.dll
 C:\Users\ndnhattan\.nuget\packages\system.windows.extensions\6.0.0\lib\net6.0\System.Windows.Extensions.dll
+=======
+C:\Users\hoai0\.nuget\packages\azure.core\1.25.0\lib\net5.0\Azure.Core.dll
+C:\Users\hoai0\.nuget\packages\azure.identity\1.7.0\lib\netstandard2.0\Azure.Identity.dll
+C:\Users\hoai0\.nuget\packages\communitytoolkit.mvvm\8.2.2\lib\net6.0\CommunityToolkit.Mvvm.dll
+C:\Users\hoai0\.nuget\packages\microsoft.bcl.asyncinterfaces\1.1.1\lib\netstandard2.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\hoai0\.nuget\packages\microsoft.data.sqlclient\5.1.2\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\hoai0\.nuget\packages\microsoft.identity.client\4.47.2\lib\netcoreapp2.1\Microsoft.Identity.Client.dll
+C:\Users\hoai0\.nuget\packages\microsoft.identity.client.extensions.msal\2.19.3\lib\netcoreapp2.1\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\hoai0\.nuget\packages\microsoft.identitymodel.abstractions\6.24.0\lib\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\hoai0\.nuget\packages\microsoft.identitymodel.jsonwebtokens\6.24.0\lib\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\hoai0\.nuget\packages\microsoft.identitymodel.logging\6.24.0\lib\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\hoai0\.nuget\packages\microsoft.identitymodel.protocols\6.24.0\lib\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\hoai0\.nuget\packages\microsoft.identitymodel.protocols.openidconnect\6.24.0\lib\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\hoai0\.nuget\packages\microsoft.identitymodel.tokens\6.24.0\lib\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\hoai0\.nuget\packages\microsoft.sqlserver.server\1.0.0\lib\netstandard2.0\Microsoft.SqlServer.Server.dll
+C:\Users\hoai0\.nuget\packages\microsoft.win32.registry\4.7.0\lib\netstandard2.0\Microsoft.Win32.Registry.dll
+C:\Users\hoai0\.nuget\packages\microsoft.win32.systemevents\6.0.0\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\hoai0\.nuget\packages\system.configuration.configurationmanager\6.0.1\lib\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\hoai0\.nuget\packages\system.data.sqlclient\4.8.5\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\hoai0\.nuget\packages\system.diagnostics.diagnosticsource\6.0.0\lib\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\hoai0\.nuget\packages\system.drawing.common\6.0.0\lib\net6.0\System.Drawing.Common.dll
+C:\Users\hoai0\.nuget\packages\system.formats.asn1\5.0.0\lib\netstandard2.0\System.Formats.Asn1.dll
+C:\Users\hoai0\.nuget\packages\system.identitymodel.tokens.jwt\6.24.0\lib\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\hoai0\.nuget\packages\system.memory.data\1.0.2\lib\netstandard2.0\System.Memory.Data.dll
+C:\Users\hoai0\.nuget\packages\system.runtime.caching\6.0.0\lib\net6.0\System.Runtime.Caching.dll
+C:\Users\hoai0\.nuget\packages\system.runtime.compilerservices.unsafe\6.0.0\lib\net6.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\hoai0\.nuget\packages\system.security.accesscontrol\6.0.0\lib\net6.0\System.Security.AccessControl.dll
+C:\Users\hoai0\.nuget\packages\system.security.cryptography.cng\5.0.0\lib\netcoreapp3.0\System.Security.Cryptography.Cng.dll
+C:\Users\hoai0\.nuget\packages\system.security.cryptography.protecteddata\6.0.0\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\hoai0\.nuget\packages\system.security.permissions\6.0.0\lib\net6.0\System.Security.Permissions.dll
+C:\Users\hoai0\.nuget\packages\system.security.principal.windows\5.0.0\lib\netstandard2.0\System.Security.Principal.Windows.dll
+C:\Users\hoai0\.nuget\packages\system.text.encoding.codepages\6.0.0\lib\net6.0\System.Text.Encoding.CodePages.dll
+C:\Users\hoai0\.nuget\packages\system.text.encodings.web\6.0.0\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\hoai0\.nuget\packages\system.text.json\4.7.2\lib\netcoreapp3.0\System.Text.Json.dll
+C:\Users\hoai0\.nuget\packages\system.windows.extensions\6.0.0\lib\net6.0\System.Windows.Extensions.dll
+>>>>>>> d2fe67f3fba55e99f5ffc5c7b5e62a6c47fe4ca9

@@ -61,7 +61,7 @@ namespace DentalService.Employee {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/DentalService;component/employee/editappointment.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/DentalService;V1.0.0.0;component/employee/editappointment.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Employee\EditAppointment.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

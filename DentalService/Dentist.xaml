@@ -5,11 +5,127 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DentalService"
         mc:Ignorable="d"
-        Title="Dentist" Height="450" Width="800" WindowStartupLocation="CenterScreen">
-    <Grid Margin="0,-12,-5,12">
-        <Label Content="Welcome dentist page" HorizontalAlignment="Left" Margin="320,119,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Button Content="Logout&#xD;&#xA;" HorizontalAlignment="Left" Margin="395,256,0,0" VerticalAlignment="Top" Click="Button_Click" Width="50" Height="25"/>
-        <Label Content="{Binding Name}"  d:Content="Test" HorizontalAlignment="Left" Margin="400,169,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        Title="Dentist" Height="600" Width="1000" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <Border BorderThickness="1" BorderBrush="Black" Background="DimGray">
+            <Grid  Margin="16 8 16 8" Height="32">
+                <Button  Width="120" Background="White" Click="LogoutButton_Click" Margin="16 0 0 0" HorizontalAlignment="Right" Content="Logout"/>
+
+                <TextBlock  FontSize="30" Background="Transparent" Margin="16 0 0 0" HorizontalAlignment="Center" Text ="Dentist " FontWeight="Bold"/>
+            </Grid>
+        </Border>
+
+        <Grid Background="White" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+
+            </Grid.ColumnDefinitions>
+            <Border BorderThickness="1" BorderBrush="Black">
+                <Grid Grid.Column="0" Margin="8 8 8 8" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel>
+                        <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Dentist information</TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Full name: "/>
+                            <TextBlock FontWeight="Medium" FontSize="14" Text="{Binding FullName}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 8 0 8">
+                            <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Birth Date: "/>
+                            <TextBlock FontWeight="Medium" FontSize="14" Text="{Binding  Birthday}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 2 0 8">
+                            <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Phone number: "/>
+                            <TextBlock FontWeight="Medium" FontSize="14" Text="{Binding  PhoneNumber}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 2 0 8">
+                            <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Address: "/>
+                            <TextBlock FontWeight="Medium" FontSize="14" Text="{Binding  DentistAddress}" Height="28"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                    <StackPanel Grid.Row="1">
+                        <ScrollViewer VerticalScrollBarVisibility="Hidden" Grid.Column="1">
+                            <Border Grid.Row="0" BorderBrush="Black" BorderThickness="1">
+                                <Grid Margin="8 8 8 8">
+                                    <StackPanel>
+                                        <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Dentist schedule</TextBlock>
+                                        <DataGrid Name="Schedule"  IsReadOnly="True" AutoGenerateColumns="False">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Working day" Width="*" Binding="{Binding WorkingDay, Mode=TwoWay}" />
+                                                <DataGridTextColumn Header="Start Time" Width="*" Binding="{Binding StartTime, Mode=TwoWay}" />
+                                                <DataGridTextColumn Header="End Time" Width="*" Binding="{Binding EndTime, Mode=TwoWay}" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                        <Separator Margin="0 8 0 8"></Separator>
+
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                            <Button Width="130"  Height="32">Add</Button>
+                                            <RibbonSeparator Margin="8"/>
+                                            <Button Width="130"  Height="32" Click="UpdateClick" >Update</Button>
+                                        </StackPanel>
+
+                                        
+
+                                      
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </ScrollViewer>
+
+                    </StackPanel>
+                </Grid>
+            </Border >
+
+
+            <ScrollViewer VerticalScrollBarVisibility="Hidden" Grid.Column="1">
+                <Border Grid.Row="0" BorderBrush="Black" BorderThickness="1">
+                    <Grid Margin="8 8 8 8">
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Dentist Upcomming Appointment</TextBlock>
+                            <DataGrid Name="DentistAppoitment" IsReadOnly="True" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Appointment Date" Width="*" Binding="{Binding AppointmentDate}" />
+                                    <DataGridTextColumn Header="Start Time" Width="*" Binding="{Binding StartTime}" />
+                                    <DataGridTextColumn Header="End Time" Width="*" Binding="{Binding EndTime}" />
+                                    <DataGridTextColumn Header="Status" Width="*" Binding="{Binding Status}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Separator Margin="0 8 0 8"></Separator>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Button Width="130"  Height="32">Create</Button>
+                                <RibbonSeparator Margin="8"/>
+                                <Button Width="130"  Height="32" >Edit</Button>
+                            </StackPanel>
+
+                            <Separator Margin="0 20 0 20" BorderThickness="2" BorderBrush="Black"></Separator>
+
+                            <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Medical Record</TextBlock>
+                            <DataGrid  IsReadOnly="False" ItemsSource="{Binding Path=UnpayTreatment}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Dentist" Width="*" />
+                                    <DataGridTextColumn Header="Appointment Date" Width="*"/>
+                                    <DataGridTextColumn Header="Appointment Time" Width="*"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Separator Margin="0 8 0 8"></Separator>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Button Width="130" Height="32">Edit</Button>
+
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </Window>
