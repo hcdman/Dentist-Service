@@ -14,7 +14,7 @@
 
         <Border BorderThickness="1" BorderBrush="Black" Background="DimGray">
             <Grid  Margin="16 8 16 8" Height="32">
-                <Button  Width="120" Background="White" Click="LogoutButton_Click" Margin="16 0 0 0" HorizontalAlignment="Right" Content="Logout"/>
+                <Button  Width="120" Background="White" Click="LogoutButton_Click" Margin="16 0 0 0" HorizontalAlignment="Right" Content="Logout" />
 
                 <TextBlock  FontSize="20" Background="Transparent" Margin="16 0 0 0" HorizontalAlignment="Center" Text ="Employee XXX"/>
             </Grid>
@@ -57,11 +57,12 @@
                     <Grid Margin="8 8 8 8">
                         <StackPanel>
                             <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Customer Upcomming Appointment</TextBlock>
-                            <DataGrid  IsReadOnly="False" ItemsSource="{Binding Path=UpcommingAppointmentList}">
+                            <DataGrid AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Path=CommittedUpcommingAppointmentList, Mode=TwoWay}" SelectionChanged="DataGrid_SelectionChanged">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Dentist" Width="*" />
-                                    <DataGridTextColumn Header="Appointment Date" Width="*"/>
-                                    <DataGridTextColumn Header="Appointment Time" Width="*"/>
+                                    <DataGridTextColumn Header="Dentist" Width="*"/>
+                                    <DataGridTextColumn Header="Appointment Date" Width="*" Binding="{Binding AppointmentDate}"/>
+                                    <DataGridTextColumn Header="Start Time" Width="*"/>
+                                    <DataGridTextColumn Header="End Time" Width="*"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Separator Margin="0 8 0 8"></Separator>
