@@ -15,7 +15,6 @@
         <Border BorderThickness="1" BorderBrush="Black" Background="DimGray">
             <Grid  Margin="16 8 16 8" Height="32">
                 <Button  Width="120" Background="White" Click="LogoutButton_Click" Margin="16 0 0 0" HorizontalAlignment="Right" Content="Logout"/>
-
                 <TextBlock  FontSize="30" Background="Transparent" Margin="16 0 0 0" HorizontalAlignment="Center" Text ="Detail Medical Record" FontWeight="Bold"/>
             </Grid>
         </Border>
@@ -33,24 +32,19 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <StackPanel>
-                        <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Customer information</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Customer Infomation</TextBlock>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Full name: "/>
                             <TextBlock FontWeight="Medium" FontSize="14" Text="{Binding FullName}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0 8 0 8">
                             <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Birth Date: "/>
-                            <TextBlock FontWeight="Medium" FontSize="14" Text="{Binding  Birthday}"/>
+                            <TextBlock FontWeight="Medium" FontSize="14" Text="{Binding Birthday, StringFormat=dd-MM-yyyy}"/>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0 2 0 8">
-                            <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Phone number: "/>
-                            <TextBlock FontWeight="Medium" FontSize="14" Text="{Binding  PhoneNumber}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Phone: "/>
+                            <TextBox FontSize="14" FontWeight="Medium" Text="{Binding PhoneNumber}"/>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0 2 0 8">
-                            <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Address: "/>
-                            <TextBlock FontWeight="Medium" FontSize="14" Text="{Binding  DentistAddress}" Height="28"/>
-                        </StackPanel>
-
                     </StackPanel>
                    
                 </Grid>
@@ -62,15 +56,11 @@
                     <Grid Margin="8 8 8 8">
                         <StackPanel>
                             <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Medicine</TextBlock>
-                            <DataGrid Name="DentistAppoitment" IsReadOnly="True" AutoGenerateColumns="False">
+                            <DataGrid Name="Medicinelist" IsReadOnly="True" AutoGenerateColumns="False">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Appointment Date" Width="*" Binding="{Binding AppointmentDate}" />
-                                    <DataGridTextColumn Header="Start Time" Width="*" Binding="{Binding StartTime}" />
-                                    <DataGridTextColumn Header="End Time" Width="*" Binding="{Binding EndTime}" />
-                                    <DataGridTextColumn Header="Status" Width="*" Binding="{Binding Status}" />
-                                    <DataGridTemplateColumn >
-                                    
-                                    </DataGridTemplateColumn>
+                                    <DataGridTextColumn Header="Name Medicine" Width="*" Binding="{Binding NameMedicine}" />
+                                    <DataGridTextColumn Header="Quantity" Width="*" Binding="{Binding Quantity}" />
+                                    <DataGridTextColumn Header="Price" Width="*" Binding="{Binding Price}" />
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Separator Margin="0 8 0 8"></Separator>
@@ -82,14 +72,11 @@
                             <Separator Margin="0 20 0 20" BorderThickness="2" BorderBrush="Black"></Separator>
 
                             <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Dental Service</TextBlock>
-                            <DataGrid Name="Medical"  IsReadOnly="True" AutoGenerateColumns="False">
+                            <DataGrid Name="Servicelist"  IsReadOnly="True" AutoGenerateColumns="False">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Medical record date" Width="*" Binding="{Binding MedicalRecordDate,StringFormat=dd-MM-yyyy}" />
-                                    <DataGridTextColumn Header="Customer Name" Width="*" Binding="{Binding CustomerName}" />
-                                    <DataGridTextColumn Header="Description" Width="*" Binding="{Binding Description}" />
-                                    <DataGridTemplateColumn Header="Detail">
-                                       
-                                    </DataGridTemplateColumn>
+                                    <DataGridTextColumn Header="Name service" Width="*" Binding="{Binding NameService}" />
+                                    <DataGridTextColumn Header="Price" Width="*" Binding="{Binding Price}" />
+                                    
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Separator Margin="0 8 0 8"></Separator>

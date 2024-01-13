@@ -14,5 +14,13 @@ namespace DentalService.Model
         public string NameMedicine { get; set; }
         public int Price { get; set; }
         public int Quantity { get; set; }
+        public RecordMedicine(int mRecordID, int medicineID, string nameMedicine, int price, int quantity)
+        {
+            MRecordID = mRecordID;
+            MedicineID = medicineID;
+            NameMedicine = nameMedicine;
+            Price = price;
+            Quantity = quantity;
+        }
     }
 }

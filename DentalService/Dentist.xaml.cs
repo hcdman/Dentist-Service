@@ -21,9 +21,11 @@ namespace DentalService
     /// <summary>
     /// Interaction logic for Dentist.xaml
     /// </summary>
+    /// 
     public partial class Dentist : Window
     {
-        SqlConnection connection;
+        SqlConnection connection =new SqlConnection();
+
         string connectString;
         int Id;
         DentistM _dentist;
@@ -102,6 +104,7 @@ namespace DentalService
                     while (reader.Read())
                     {
                         int id = (int)reader["mrecordid"];
+                        int idCus = (int)reader["CustomerID"];
                         string nameCus = (string)reader["FullName"];
                         DateTime mrDate = (DateTime)reader["MedicalRecordDate"];
                         string app = mrDate.ToString("dd-MM-yyyy");
@@ -109,6 +112,7 @@ namespace DentalService
                         var record = new MedicalRecord()
                         {
                             MRecordId = id,
+                            CustomerId=idCus,
                             CustomerName=nameCus,
                             MedicalRecordDate=mrDate,
                             Description=des,
@@ -167,9 +171,59 @@ namespace DentalService
        
         private void DetailRecord(object sender, RoutedEventArgs e)
         {
-            var screen = new DetailRecord ( connectString, _dentist);
-            this.Close();
-            screen.Show();
+            Button clickedButton = sender as Button;
+            
+            // Check if the cast was successful and the button is not null
+            if (clickedButton != null)
+            {
+
+                object tagValue = clickedButton.Tag;
+
+                if (tagValue != null)
+                {
+
+                    int mrID;
+                    MedicalRecord record = _medical[0];
+                   
+                        
+                    if (int.TryParse(tagValue.ToString(), out mrID))
+                    {
+                        for (int i = 0; i < _medical.Count(); i++)
+                        {
+                            if (_medical[i].MRecordId == mrID)
+                            {
+                                record = _medical[i];
+                                break;
+                            }
+                        }
+                        var sql = "select * from Customer where CustomerID = @idCus";
+                        using (var command2 = new SqlCommand(sql, connection))
+                        {
+
+                            command2.Parameters.Add("@idCus", SqlDbType.Int).Value = record.CustomerId;
+                            using (var reader = command2.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    int idC = (int)reader["CustomerID"];
+                                    string nameC = (string)reader["FullName"];
+                                    DateTime birthdayC = (DateTime)reader["Birthday"];
+                                    string phoneNumberC = (string)reader["PhoneNumber"];
+                                    CustomerM cus = new CustomerM(idC, nameC, birthdayC, phoneNumberC);
+                                    reader.Close();
+                                    var screen = new DetailRecord(connection,_dentist,cus,mrID);
+                                    this.Close();
+                                    screen.Show();
+                                }
+                               
+                            }
+                        }
+
+
+                    }
+                }
+            }
+          
         }
     }
 }

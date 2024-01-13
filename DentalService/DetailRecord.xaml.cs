@@ -1,10 +1,14 @@
 ﻿using DentalService.Model;
+using System.Data;
+using System.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation.Peers;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -20,13 +24,62 @@ namespace DentalService
     /// </summary>
     public partial class DetailRecord : Window
     {
-        
-        public DetailRecord(string connect, DentistM dentsit)
+        SqlConnection connection;
+        int ID;
+        string cnString;
+        DentistM _dentist;
+        BindingList<RecordMedicine> _medicine = new BindingList<RecordMedicine>();
+        BindingList<RecordService> _service = new BindingList<RecordService>();
+        public DetailRecord(SqlConnection connect, DentistM d, CustomerM customer,int mrID)
         {
             InitializeComponent();
-            //get information of customer
+            connection = connect;
+            this.DataContext = customer;
+            _dentist = d;
+            ID = mrID;
+            //var connectionString = ConfigurationManager.ConnectionStrings["TaiMSIConnectionString"].ConnectionString;
             //get information medicine
+            var sql = "select * from MedicalRecord_Medicine,Medicine where MedicalRecord_Medicine.MRecordID= @idMR and MedicalRecord_Medicine.MedicineID=Medicine.MedicineID";
+            using (var command2 = new SqlCommand(sql, connect))
+            {
+                command2.Parameters.Add("@idMR", SqlDbType.Int).Value = mrID;
+                using (var reader = command2.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int idMRC = (int)reader["MRecordID"];
+                        int idME = (int)reader["MedicineID"];
+                        string name = (string)reader["MedicineName"];
+                        int price = (int)reader["Price"];
+                        int quantity = (int)reader["Quantity"];
+                        RecordMedicine rc = new RecordMedicine(idMRC, idME, name, price, quantity);
+                        _medicine.Add(rc);
+                    }
+                 
+                    Medicinelist.ItemsSource = _medicine;
+                }
+            }
             //get information dental service
+            var sql1 = "select * from MedicalRecord_DentalService,DentalService where MedicalRecord_DentalService.MRecordID= @idMR and MedicalRecord_DentalService.MRecordID=DentalService.DentalServiceID";
+            using (var command3 = new SqlCommand(sql1, connect))
+            {
+                command3.Parameters.Add("@idMR", SqlDbType.Int).Value = mrID;
+                using (var reader = command3.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int idMRC = (int)reader["MRecordID"];
+                        int idME = (int)reader["DentalServiceID"];
+                        string name = (string)reader["ServiceName"];
+                        int price = (int)reader["Price"];
+       
+                        RecordService rc = new RecordService(idMRC, idME, name, price);
+                        _service.Add(rc);
+                    }
+
+                    Servicelist.ItemsSource = _service;
+                }
+            }
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)

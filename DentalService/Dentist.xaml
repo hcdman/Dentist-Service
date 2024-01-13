@@ -115,7 +115,7 @@
                             </DataGrid>
                             <Separator Margin="0 8 0 8"></Separator>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button Width="130"  Height="32" Click="Button_Click">Add</Button>
+                                <Button Width="130"  Height="32">Add</Button>
                                
                             </StackPanel>
 
@@ -130,7 +130,7 @@
                                     <DataGridTemplateColumn Header="Detail">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <Button x:Name="btnDelete" Content="Detail" Click="DetailRecord" />
+                                                <Button x:Name="btnDelete" Content="Detail" Click="DetailRecord" Tag="{Binding  MRecordId}"/>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>

@@ -457,3 +457,9 @@ C:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\obj\Debug\net6.0
 C:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\obj\Debug\net6.0-windows\ref\DentalService.dll
 C:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\obj\Debug\net6.0-windows\UpdateAppointment.g.cs
 C:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\obj\Debug\net6.0-windows\UpdateAppointment.baml
+C:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\obj\Debug\net6.0-windows\AddMedicineRecord.g.cs
+C:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\obj\Debug\net6.0-windows\AddServiceRecord.g.cs
+C:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\obj\Debug\net6.0-windows\DetailRecord.g.cs
+C:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\obj\Debug\net6.0-windows\AddMedicineRecord.baml
+C:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\obj\Debug\net6.0-windows\AddServiceRecord.baml
+C:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\obj\Debug\net6.0-windows\DetailRecord.baml
