@@ -164,9 +164,12 @@ namespace DentalService
             
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+       
+        private void DetailRecord(object sender, RoutedEventArgs e)
         {
-
+            var screen = new DetailRecord ( connectString, _dentist);
+            this.Close();
+            screen.Show();
         }
     }
 }

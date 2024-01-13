@@ -7,7 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AddMedicineRecord.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AddMedicineWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AddServiceRecord.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Admin.xaml.cs">
@@ -20,6 +26,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Dentist.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DetailRecord.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Employee\CreateAppointment.xaml.cs">
@@ -42,7 +51,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AddMedicineRecord.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="AddMedicineWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AddServiceRecord.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Admin.xaml">
@@ -55,6 +70,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dentist.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DetailRecord.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Employee\CreateAppointment.xaml">
