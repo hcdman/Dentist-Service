@@ -5,11 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DentalService"
         mc:Ignorable="d"
-        Title="Customer" Height="450" Width="800" WindowStartupLocation="CenterScreen"
-        Loaded="Window_Loaded">
-    <Window.Resources>
-        <local:DateConverter x:Key="dateConverter"/>
-    </Window.Resources>
+        Title="Customer" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

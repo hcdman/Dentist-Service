@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DentalService.Model; 
-public class MedicalRecord {
+namespace DentalService.Model;
+public class MedicalRecord
+{
     public int MRecordId { get; set; }
     public int CustomerId { get; set; }
     public int DentistId { get; set; }

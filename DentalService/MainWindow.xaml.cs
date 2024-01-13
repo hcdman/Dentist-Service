@@ -76,38 +76,6 @@ namespace DentalService
             {
                 if (reader.Read())
                 {
-<<<<<<< HEAD
-                    case "Admin":
-                        var screen = new Admin(userName);
-                        this.Close();
-                        screen.Show();
-                        break;
-                    case "Dentist":
-                        int id = (int)reader["DentistID"];
-                        string name = (string)reader["FullName"];
-                        DentistM dentist = new DentistM(id, name);
-                        var screen_2 = new Dentist(connection, dentist);
-                        this.Close();
-                        screen_2.Show();
-                        break;
-                    case "Customer":
-                        int idC = (int)reader["CustomerID"];
-                        string nameC = (string)reader["FullName"];
-                        DateTime birthdayC = (DateTime)reader["Birthday"];
-                        string phoneNumberC = (string)reader["PhoneNumber"];
-                        CustomerM cus = new CustomerM(idC, nameC, birthdayC, phoneNumberC);
-                        var screen_3 = new Customer(connection, cus);
-                        this.Close();
-                        screen_3.Show(); break;
-                    case "Employee":
-                        int idE = (int)reader["EmployeeID"];
-                        string nameE = (string)reader["FullName"];
-                        EmployeeM emp = new EmployeeM(idE, nameE);
-                        var screen_4 = new Employee.EmployeeWindow(connection, emp);
-                        this.Close();
-                        screen_4.Show(); break;
-                }
-=======
                     switch (role)
                     {
                         case "Admin":
@@ -132,7 +100,9 @@ namespace DentalService
                         case "Customer":
                             int idC = (int)reader["CustomerID"];
                             string nameC = (string)reader["FullName"];
-                            CustomerM cus = new CustomerM(idC, nameC);
+                            DateTime birthdayC = (DateTime)reader["Birthday"];
+                            string phoneNumberC = (string)reader["PhoneNumber"];
+                            CustomerM cus = new CustomerM(idC, nameC, birthdayC, phoneNumberC);
                             var screen_3 = new Customer(connection, cus);
                             this.Close();
                             screen_3.Show(); break;
@@ -144,7 +114,6 @@ namespace DentalService
                             this.Close();
                             screen_4.Show(); break;
                     }
->>>>>>> d2fe67f3fba55e99f5ffc5c7b5e62a6c47fe4ca9
 
                 }
                 else

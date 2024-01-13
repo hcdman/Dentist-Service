@@ -32,7 +32,7 @@ namespace DentalService
         public Customer(SqlConnection cn, CustomerM cus)
         {
             InitializeComponent();
-            _customer =cus;
+            _customer = cus;
             connection = cn;
             this.DataContext = _customer;
             connection.Close();
@@ -98,7 +98,7 @@ namespace DentalService
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-           
+
         }
     }
 }

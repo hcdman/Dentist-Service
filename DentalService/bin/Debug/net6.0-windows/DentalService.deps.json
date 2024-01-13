@@ -243,12 +243,6 @@
       "PropertyChanged.Fody/4.1.0": {
         "dependencies": {
           "Fody": "6.8.0"
-        },
-        "runtime": {
-          "lib/netstandard2.1/PropertyChanged.dll": {
-            "assemblyVersion": "4.1.0.0",
-            "fileVersion": "4.1.0.0"
-          }
         }
       },
       "runtime.native.System.Data.SqlClient.sni/4.7.0": {
