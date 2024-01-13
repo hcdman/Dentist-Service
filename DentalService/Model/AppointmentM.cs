@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DentalService.Model
 {
-    class AppointmentM
+   public class AppointmentM
     {
         public int AppointmentId { get; set; }
         public int DentistId { get; set; }

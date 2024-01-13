@@ -24,13 +24,16 @@ namespace DentalService
     public partial class Dentist : Window
     {
         SqlConnection connection;
+        string connectString;
         int Id;
         DentistM _dentist;
         BindingList<DentistScheduleM> _scheduleDentist = new BindingList<DentistScheduleM>();
         BindingList<AppointmentM> _appointment = new BindingList<AppointmentM>();
+        BindingList<MedicalRecord> _medical = new BindingList<MedicalRecord>();
         public Dentist(string cn, DentistM dentist)
         {
             InitializeComponent();
+            connectString = cn;
             connection = new SqlConnection(cn);
             connection.Open();
             _dentist = dentist;
@@ -60,6 +63,7 @@ namespace DentalService
                     Schedule.ItemsSource = _scheduleDentist;
                 }
             }
+            //get data of appoint ment
             var sql2 = "select * from Appointment where DentistID = @idDentist";
             using (var command3 = new SqlCommand(sql2, connection))
             {
@@ -87,7 +91,36 @@ namespace DentalService
                     DentistAppoitment.ItemsSource = _appointment;
                 }
             }
+            //get data of medical record
+            var sql3 = "select * from MedicalRecord,Customer where DentistID = @idDentist and Customer.CustomerID=MedicalRecord.CustomerID";
+            using (var command4 = new SqlCommand(sql3, connection))
+            {
 
+                command4.Parameters.Add("@idDentist", SqlDbType.Int).Value = _dentist.DentistID;
+                using (var reader = command4.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int id = (int)reader["mrecordid"];
+                        string nameCus = (string)reader["FullName"];
+                        DateTime mrDate = (DateTime)reader["MedicalRecordDate"];
+                        string app = mrDate.ToString("dd-MM-yyyy");
+                        string des = (string)reader["Description"];
+                        var record = new MedicalRecord()
+                        {
+                            MRecordId = id,
+                            CustomerName=nameCus,
+                            MedicalRecordDate=mrDate,
+                            Description=des,
+                        };
+
+                        _medical.Add(record);
+                                             
+                    }
+                    reader.Close();
+                    Medical.ItemsSource = _medical;
+                }
+            }
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
@@ -98,6 +131,40 @@ namespace DentalService
         }
 
         private void UpdateClick(object sender, RoutedEventArgs e)
+        {
+            Button clickedButton = sender as Button;
+            AppointmentM tempp = _appointment[0] ;
+            // Check if the cast was successful and the button is not null
+            if (clickedButton != null)
+            {
+                
+                object tagValue = clickedButton.Tag;
+
+                if (tagValue != null)
+                {
+               
+                    int scheduleId;
+                    if (int.TryParse(tagValue.ToString(), out scheduleId))
+                    {
+                      
+                        for(int i =0;i< _appointment.Count();i++)
+                        {
+                            if (_appointment[i].AppointmentId==scheduleId)
+                            {
+                                tempp= _appointment[i];
+                            }
+                        }
+                      
+                    }
+                }
+            }
+            var screen = new UpdateAppointment(tempp,connectString,_dentist);
+                this.Close();
+                screen.Show();
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }

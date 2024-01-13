@@ -63,15 +63,22 @@
                                                 <DataGridTextColumn Header="Working day" Width="*" Binding="{Binding WorkingDay, Mode=TwoWay}" />
                                                 <DataGridTextColumn Header="Start Time" Width="*" Binding="{Binding StartTime, Mode=TwoWay}" />
                                                 <DataGridTextColumn Header="End Time" Width="*" Binding="{Binding EndTime, Mode=TwoWay}" />
+                                                <DataGridTemplateColumn >
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <Button x:Name="UpdateAp" Content="Update" />
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
                                             </DataGrid.Columns>
                                         </DataGrid>
                                         <Separator Margin="0 8 0 8"></Separator>
 
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                             <Button Width="130"  Height="32">Add</Button>
                                             <RibbonSeparator Margin="8"/>
                                             <Button Width="130"  Height="32" Click="UpdateClick" >Update</Button>
-                                        </StackPanel>
+                                        </StackPanel>-->
 
                                         
 
@@ -97,29 +104,43 @@
                                     <DataGridTextColumn Header="Start Time" Width="*" Binding="{Binding StartTime}" />
                                     <DataGridTextColumn Header="End Time" Width="*" Binding="{Binding EndTime}" />
                                     <DataGridTextColumn Header="Status" Width="*" Binding="{Binding Status}" />
+                                    <DataGridTemplateColumn >
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button x:Name="UpdateAp" Tag="{Binding ScheduleId}" Content="Update" Click="UpdateClick" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Separator Margin="0 8 0 8"></Separator>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button Width="130"  Height="32">Create</Button>
-                                <RibbonSeparator Margin="8"/>
-                                <Button Width="130"  Height="32" >Edit</Button>
+                                <Button Width="130"  Height="32" Click="Button_Click">Add</Button>
+                               
                             </StackPanel>
 
                             <Separator Margin="0 20 0 20" BorderThickness="2" BorderBrush="Black"></Separator>
 
                             <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Medical Record</TextBlock>
-                            <DataGrid  IsReadOnly="False" ItemsSource="{Binding Path=UnpayTreatment}">
+                            <DataGrid Name="Medical"  IsReadOnly="True" AutoGenerateColumns="False">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Dentist" Width="*" />
-                                    <DataGridTextColumn Header="Appointment Date" Width="*"/>
-                                    <DataGridTextColumn Header="Appointment Time" Width="*"/>
+                                    <DataGridTextColumn Header="Medical record date" Width="*" Binding="{Binding MedicalRecordDate,StringFormat=dd-MM-yyyy}" />
+                                    <DataGridTextColumn Header="Customer Name" Width="*" Binding="{Binding CustomerName}" />
+                                    <DataGridTextColumn Header="Description" Width="*" Binding="{Binding Description}" />
+                                    <DataGridTemplateColumn Header="Detail">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button x:Name="btnDelete" Content="Detail" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Separator Margin="0 8 0 8"></Separator>
 
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button Width="130" Height="32">Edit</Button>
+                                <Button Width="130" Height="32">Add</Button>
 
                             </StackPanel>
                         </StackPanel>

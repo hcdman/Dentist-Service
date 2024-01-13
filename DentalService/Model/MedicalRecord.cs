@@ -11,6 +11,8 @@ public class MedicalRecord
     public int CustomerId { get; set; }
     public int DentistId { get; set; }
     public string DentistName { get; set; }
+    public string CustomerName { get; set; }
     public DateTime MedicalRecordDate { get; set; }
     public string Description { get; set; }
+
 }
