@@ -240,5 +240,39 @@ namespace DentalService
             this.Close();
             screen.Show();
         }
+
+        private void UpdateSchedule(object sender, RoutedEventArgs e)
+        {
+
+            Button clickedButton = sender as Button;
+            DentistScheduleM tempp = _scheduleDentist[0];
+            // Check if the cast was successful and the button is not null
+            if (clickedButton != null)
+            {
+
+                object tagValue = clickedButton.Tag;
+
+                if (tagValue != null)
+                {
+
+                    int scheduleId;
+                    if (int.TryParse(tagValue.ToString(), out scheduleId))
+                    {
+
+                        for (int i = 0; i < _scheduleDentist.Count(); i++)
+                        {
+                            if (_scheduleDentist[i].ScheduleId== scheduleId)
+                            {
+                                tempp = _scheduleDentist[i];
+                            }
+                        }
+
+                    }
+                }
+            }
+            var screen = new UpdateScheduleDentist(tempp, connectString, _dentist);
+            this.Close();
+            screen.Show();
+        }
     }
 }

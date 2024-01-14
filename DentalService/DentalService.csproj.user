@@ -55,6 +55,9 @@
     <Compile Update="UpdateMedicineWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UpdateScheduleDentist.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AddAppointment.xaml">
@@ -106,6 +109,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UpdateMedicineWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UpdateScheduleDentist.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
