@@ -115,7 +115,7 @@
                             </DataGrid>
                             <Separator Margin="0 8 0 8"></Separator>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button Width="130"  Height="32">Add</Button>
+                                <Button Width="130"  Height="32" Click="add_appointment" Tag="{Binding DentistID}">Add</Button>
                                
                             </StackPanel>
 
@@ -140,8 +140,7 @@
                             <Separator Margin="0 8 0 8"></Separator>
 
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button Width="130" Height="32">Add</Button>
-
+                                <Button Width="130" Height="32" Click="add_record" Tag="{Binding DentistID}">Add</Button>
                             </StackPanel>
                         </StackPanel>
                     </Grid>

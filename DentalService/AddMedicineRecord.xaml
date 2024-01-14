@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="AddMedicineRecord" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <StackPanel>
-        <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Add Medicine to Medical Record</TextBlock>
+        <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14" FontWeight="Bold">Add Medicine to Medical Record</TextBlock>
         <DataGrid Name="Medicinelist" IsReadOnly="True" AutoGenerateColumns="False" Margin="10">
             <DataGrid.Columns>
                 <DataGridTemplateColumn>

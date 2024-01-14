@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -224,6 +225,20 @@ namespace DentalService
                 }
             }
           
+        }
+
+        private void add_record(object sender, RoutedEventArgs e)
+        {
+            var screen = new AddMedicalRecord(connectString,_dentist);
+            this.Close();
+            screen.Show();
+        }
+
+        private void add_appointment(object sender, RoutedEventArgs e)
+        {
+            var screen = new AddAppointment(connectString, _dentist);
+            this.Close();
+            screen.Show();
         }
     }
 }

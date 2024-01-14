@@ -7,6 +7,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AddAppointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AddMedicalRecord.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AddMedicineRecord.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -51,6 +57,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AddAppointment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AddMedicalRecord.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="AddMedicineRecord.xaml">
       <SubType>Designer</SubType>
     </Page>
