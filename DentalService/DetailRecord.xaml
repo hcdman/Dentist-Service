@@ -14,6 +14,8 @@
 
         <Border BorderThickness="1" BorderBrush="Black" Background="DimGray">
             <Grid  Margin="16 8 16 8" Height="32">
+                <Button Width="130"  Height="32" Click="Back_Click" Content="Back" Margin="0 0 600 0"/>
+
                 <Button  Width="120" Background="White" Click="LogoutButton_Click" Margin="16 0 0 0" HorizontalAlignment="Right" Content="Logout"/>
                 <TextBlock  FontSize="30" Background="Transparent" Margin="16 0 0 0" HorizontalAlignment="Center" Text ="Detail Medical Record" FontWeight="Bold"/>
             </Grid>
@@ -65,8 +67,7 @@
                             </DataGrid>
                             <Separator Margin="0 8 0 8"></Separator>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button Width="130"  Height="32" Click="Add_Medicine">Add</Button>
-
+                                <Button Width="130"  Height="32" Click="Add_Medicine" Content="Add"/>
                             </StackPanel>
 
                             <Separator Margin="0 20 0 20" BorderThickness="2" BorderBrush="Black"></Separator>

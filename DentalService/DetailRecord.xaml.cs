@@ -27,6 +27,7 @@ namespace DentalService
         SqlConnection connection;
         int ID;
         string cnString;
+        CustomerM cus;
         DentistM _dentist;
         BindingList<RecordMedicine> _medicine = new BindingList<RecordMedicine>();
         BindingList<RecordService> _service = new BindingList<RecordService>();
@@ -35,6 +36,7 @@ namespace DentalService
             InitializeComponent();
             connection = connect;
             this.DataContext = customer;
+            cus = customer;
             _dentist = d;
             ID = mrID;
             //var connectionString = ConfigurationManager.ConnectionStrings["TaiMSIConnectionString"].ConnectionString;
@@ -89,10 +91,21 @@ namespace DentalService
 
         private void Add_Medicine(object sender, RoutedEventArgs e)
         {
-
+            // id, connect
+            var screen = new AddMedicineRecord(connection, ID,_dentist,cus);
+            this.Close();
+            screen.Show();
         }
 
         private void Add_Service(object sender, RoutedEventArgs e)
+        {
+            // id, connect
+            var screen = new AddServiceRecord(connection, ID, _dentist, cus);
+            this.Close();
+            screen.Show();
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
 
         }

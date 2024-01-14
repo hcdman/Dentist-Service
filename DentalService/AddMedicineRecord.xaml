@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DentalService"
         mc:Ignorable="d"
-        Title="AddMedicineRecord" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="AddMedicineRecord" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Add Medicine to Medical Record</TextBlock>
+        <DataGrid Name="Medicinelist" IsReadOnly="True" AutoGenerateColumns="False" Margin="10">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox FontWeight="Medium" Checked="Option_Checked" Unchecked="Option_Unchecked" Tag="{Binding masp}" IsChecked="{Binding check}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Name Medicine" Width="*" Binding="{Binding MedicineName}" />
+                <DataGridTextColumn Header="Expiration Date" Width="*" Binding="{Binding ExpirationDate}" />
+                <DataGridTextColumn Header="Description" Width="*" Binding="{Binding Description}" />
+                <DataGridTextColumn Header="Price" Width="*" Binding="{Binding Price}" />
+                <DataGridTextColumn Header="In Stock" Width="*" Binding="{Binding QuantityOnStock}" />
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Width="60" Height="32" Click="Add_Medicine" FontWeight="Bold">Add</Button>
+        </StackPanel>
+    </StackPanel>
 </Window>
