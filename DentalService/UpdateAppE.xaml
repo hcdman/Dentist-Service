@@ -1,0 +1,60 @@
+﻿<Window x:Class="DentalService.UpdateAppE"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DentalService"
+        mc:Ignorable="d"
+        Title="UpdateAppE" Height="620" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14" FontWeight="Bold">Update appointment</TextBlock>
+        <Label Content="Appointment Date" Grid.Row="1" Margin="5" FontSize="16" FontWeight="Bold" />
+        <DatePicker x:Name="apDate" Grid.Row="2" Margin="5" />
+        <Label Content="Customer ID" Grid.Row="3" Margin="5" FontSize="16" FontWeight="Bold" />
+        <TextBox x:Name="cus" Grid.Row="4" Margin="5" FontSize="16" Text="{Binding CustomerId}" />
+
+        <Label Content="Dentist ID" Grid.Row="5" Margin="5" FontSize="16" FontWeight="Bold" />
+        <TextBox x:Name="dent" Grid.Row="6" Margin="5" FontSize="16" Text="{Binding DentistId, Mode=TwoWay}" />
+
+        <Label Content="Start time" Grid.Row="7" Margin="5" FontSize="16" FontWeight="Bold" />
+        <TextBox x:Name="strTime" Grid.Row="8" Margin="5" FontSize="16" Text="{Binding StartTime}" />
+
+        <Label Content="End time" Grid.Row="9" Margin="5" FontSize="16" FontWeight="Bold" />
+        <TextBox x:Name="endTime" Grid.Row="10" Margin="5" FontSize="16" Text="{Binding EndTime}" />
+
+        <Label Content="Status" Grid.Row="11" Margin="5" FontSize="16" FontWeight="Bold" />
+        <ComboBox x:Name="Status" Grid.Row="12" Margin="5,1,605,0" >
+            <ComboBoxItem >Pending</ComboBoxItem>
+            <ComboBoxItem >Completed</ComboBoxItem>
+            <ComboBoxItem>Cancelled</ComboBoxItem>
+        </ComboBox>
+        <!--<Label Content="Status" Grid.Row="6" Margin="5" FontSize="16" FontWeight="Bold" />
+     <TextBox x:Name="status" Grid.Row="7" Margin="5" FontSize="16" Text="{Binding Status}"/>-->
+        <Button Content="Update"
+          Grid.Row="13"
+         Click="UpdateClick"
+          Margin="0,15,0,6"
+          HorizontalAlignment="Center"
+          Padding="10,5"
+          Width="140" 
+          FontSize="20"
+          FontWeight="Bold"/>
+    </Grid>
+</Window>

@@ -270,7 +270,7 @@ namespace DentalService
                     }
                 }
             }
-            var screen = new UpdateScheduleDentist(tempp, connectString, _dentist);
+            var screen = new UpdateScheduleDentist(tempp,connection, _dentist);
             this.Close();
             screen.Show();
         }

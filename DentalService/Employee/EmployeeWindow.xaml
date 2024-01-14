@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DentalService.Employee"
         mc:Ignorable="d"
-        Title="EmployeeWindow" Height="600" Width="1000">
+        Title="EmployeeWindow" Height="600" Width="1000" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,7 +16,7 @@
             <Grid  Margin="16 8 16 8" Height="32">
                 <Button  Width="120" Background="White" Click="LogoutButton_Click" Margin="16 0 0 0" HorizontalAlignment="Right" Content="Logout"/>
 
-                <TextBlock  FontSize="20" Background="Transparent" Margin="16 0 0 0" HorizontalAlignment="Center" Text ="Employee XXX"/>
+                <TextBlock  FontSize="20" Background="Transparent" Margin="16 0 0 0" HorizontalAlignment="Center" Text ="Employee"/>
             </Grid>
         </Border>
 
@@ -30,18 +30,22 @@
             <Border BorderThickness="1" BorderBrush="Black">
                 <Grid Grid.Column="0" Margin="8 8 8 8" >
                     <StackPanel>
-                        <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Customer</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Employee</TextBlock>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Full name: "/>
-                            <TextBlock FontWeight="Medium" FontSize="14" Text="Chu Van Tai"/>
+                            <TextBlock FontWeight="Medium" FontSize="14" Text="{Binding FullName}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0 8 0 8">
                             <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Birth Date: "/>
-                            <TextBlock FontWeight="Medium" FontSize="14" Text="2023/1/1: "/>
+                            <TextBlock FontWeight="Medium" FontSize="14" Text="{Binding Birthday}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 8 0 8">
+                            <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Address: "/>
+                            <TextBlock FontWeight="Medium" FontSize="14" Text="{Binding EmployeeAddress}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Phone: "/>
-                            <TextBox FontSize="14" FontWeight="Medium" Text="123456789"/>
+                            <TextBox FontSize="14" FontWeight="Medium" Text="{Binding PhoneNumber}"/>
                         </StackPanel>
                         <StackPanel Orientation="Vertical" Margin="0 56 0 0">
                             <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="New Customer? "/>
@@ -57,11 +61,26 @@
                     <Grid Margin="8 8 8 8">
                         <StackPanel>
                             <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Customer Upcomming Appointment</TextBlock>
-                            <DataGrid  IsReadOnly="False" ItemsSource="{Binding Path=UpcommingAppointmentList}">
+                            <!--<DataGrid  IsReadOnly="False" ItemsSource="{Binding Path=UpcommingAppointmentList}">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Dentist" Width="*" />
                                     <DataGridTextColumn Header="Appointment Date" Width="*"/>
                                     <DataGridTextColumn Header="Appointment Time" Width="*"/>
+                                </DataGrid.Columns>
+                            </DataGrid>-->
+                            <DataGrid Name="CustomerAppoitment" IsReadOnly="True" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Appointment Date" Width="*" Binding="{Binding AppointmentDate}" />
+                                    <DataGridTextColumn Header="Start Time" Width="*" Binding="{Binding StartTime}" />
+                                    <DataGridTextColumn Header="End Time" Width="*" Binding="{Binding EndTime}" />
+                                    <DataGridTextColumn Header="Status" Width="*" Binding="{Binding Status}" />
+                                    <DataGridTemplateColumn >
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button x:Name="UpdateAp" Tag="{Binding AppointmentId}" Content="Update" Click="UpdateClick" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Separator Margin="0 8 0 8"></Separator>
@@ -69,7 +88,7 @@
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                 <Button Width="130" Click="CreateAppointment_Click" Height="32">Create</Button>
                                 <RibbonSeparator Margin="8"/>
-                                <Button Width="130"  Height="32" Click="EditAppointment_Click">Edit</Button>
+                                <!--<Button Width="130"  Height="32" Click="EditAppointment_Click">Edit</Button>-->
                             </StackPanel>
 
                             <Separator Margin="0 20 0 20" BorderThickness="2" BorderBrush="Black"></Separator>

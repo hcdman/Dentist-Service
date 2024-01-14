@@ -18,16 +18,19 @@ using System.Windows.Shapes;
 namespace DentalService
 {
     /// <summary>
-    /// Interaction logic for UpdateScheduleDentist.xaml
+    /// Interaction logic for UpdateAppE.xaml
     /// </summary>
-    public partial class UpdateScheduleDentist : Window
+    
+    public partial class UpdateAppE : Window
     {
-        DentistM _dentist;
-        SqlConnection connection;
         string connect;
-        public UpdateScheduleDentist( DentistScheduleM sche, SqlConnection cn, DentistM dt)
+        SqlConnection connection;
+        AppointmentM app;
+        EmployeeM emp;
+        public UpdateAppE(AppointmentM ap, SqlConnection cn, EmployeeM dt)
         {
             InitializeComponent();
+            app = ap;
             cn.Close();
             string connectionString = @"Server=.\SQLEXPRESS;
                                        Database = DentalClinicManagement;
@@ -35,41 +38,54 @@ namespace DentalService
             connect = connectionString;
             connection = new SqlConnection(connectionString);
             connection.Open();
-          
-            _dentist = dt;
-            this.DataContext = sche;
-            apDate.SelectedDate = sche.WorkingDay.Equals("") ? DateTime.Now : DateTime.ParseExact(sche.WorkingDay, "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
-          
+            
+            
+           
+            emp = dt;
+            apDate.SelectedDate = ap.AppointmentDate.Equals("") ? DateTime.Now : DateTime.ParseExact(ap.AppointmentDate, "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            this.DataContext = ap;
+            //status
+            for (int i = 0; i < Status.Items.Count; i++)
+            {
+                ComboBoxItem currentItem = (ComboBoxItem)Status.Items[i];
+                string value = currentItem.Content.ToString();
+
+                if (value == ap.Status)
+                {
+                    Status.SelectedIndex = i;
+                    break;
+                }
+            }
+
         }
 
         private void UpdateClick(object sender, RoutedEventArgs e)
         {
-            //update date
             try
-            {
-                //get data, run sql update data
-                var screenn = new Dentist(connect,_dentist);
-                //get data of information
-                DateTime? selectedDate = apDate.SelectedDate;
-                string newDate = selectedDate.Value.ToString("yyyy-MM-dd");
-                var sql = "exec sp_Edit_APDATE @Id,@newDate";
-                var command = new SqlCommand(sql, connection);
-                command.Parameters.Add("@id", SqlDbType.Int).Value = _dentist.DentistID;
-                command.Parameters.Add("@newDate", SqlDbType.VarChar).Value = newDate;
+            { 
+            //get data, run sql update data
+            var screen = new Employee.EmployeeWindow(connect, emp);
+            //get data of information
+            int newDentistID = 0;
+            int.TryParse(dent.Text, out newDentistID);
+            var sql = "exec sp_Edit_APDENTIST @id,@newDentist";
+            var command = new SqlCommand(sql, connection);
+            command.Parameters.Add("@id", SqlDbType.VarChar).Value = app.AppointmentId;
+            command.Parameters.Add("@newDentist", SqlDbType.VarChar).Value = newDentistID;
                 int rowsAffected = command.ExecuteNonQuery();
 
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show("Update successful!");
                     this.Close();
-                    screenn.Show();
+                    screen.Show();
                 }
                 else
                 {
                     MessageBox.Show("Update failed. No rows affected.");
                 }
-            }
-            catch (Exception ex)
+        }
+        catch(Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}");
             }
@@ -77,7 +93,6 @@ namespace DentalService
             {
                 connection.Close(); // Close the connection in the finally block to ensure it is closed even if an exception occurs.
             }
-            var screen = new Dentist(connect, _dentist);
         }
     }
 }

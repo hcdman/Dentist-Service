@@ -10,8 +10,8 @@
         <Label Content="USER LOGIN" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" Canvas.Left="223" Canvas.Top="10" Width="185" Height="49" FontSize="30"/>
         <Label Content="User Name:" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Canvas.Left="50" Canvas.Top="64" Width="172" Height="50" FontSize="24"/>
         <Label Content="Password:" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Canvas.Left="50" Canvas.Top="134"  Width="132" RenderTransformOrigin="0.386,-0.166" FontSize="24"/>
-        <TextBox Text="1112223333" Name="UserName" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="290" Canvas.Left="215" Canvas.Top="70" Height="38" FontSize="24"/>
-        <PasswordBox Password="dentist123" Name="PassWord" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="290" Height="38" Canvas.Left="215" Canvas.Top="138" FontSize="24"/>
+        <TextBox Text="1234567890" Name="UserName" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="290" Canvas.Left="215" Canvas.Top="70" Height="38" FontSize="24"/>
+        <PasswordBox Password="emp12345" Name="PassWord" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="290" Height="38" Canvas.Left="215" Canvas.Top="138" FontSize="24"/>
 
         <ComboBox Name="Role" Canvas.Left="215" Canvas.Top="201" FontSize="20" HorizontalAlignment="Left" Height="33" VerticalAlignment="Center" Width="151">
             <ComboBoxItem Content="Dentist"/>

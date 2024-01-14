@@ -109,9 +109,15 @@ namespace DentalService
                         case "Employee":
                             int idE = (int)reader["EmployeeID"];
                             string nameE = (string)reader["FullName"];
-                            EmployeeM emp = new EmployeeM(idE, nameE);
-                            var screen_4 = new Employee.EmployeeWindow(connection, emp);
+                            string addresss = (string)reader["EmployeeAddress"];
+                            DateTime birthdayE = (DateTime)reader["BirthDay"];
+                            //string birthdayString = birthday.ToString("yyyy-MM-dd");
+                            string birthdayy = birthdayE.ToString("dd-MM-yyyy");
+                            string phoneNumberE = (string)reader["PhoneNumber"];
+                            EmployeeM emp = new EmployeeM(idE,nameE,addresss,phoneNumberE,birthdayy);
+                            var screen_4 = new Employee.EmployeeWindow(connectionString, emp);
                             this.Close();
+                            reader.Close();
                             screen_4.Show(); break;
                     }
 

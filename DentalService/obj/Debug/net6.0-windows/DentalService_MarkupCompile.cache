@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\App.xaml
-202120239677
+21-705301504
 
-34-1716376359
+35770063698
 212891255812
-AddAppointment.xaml;AddMedicalRecord.xaml;AddMedicineRecord.xaml;AddMedicineWindow.xaml;AddServiceRecord.xaml;Admin.xaml;Customer.xaml;DeleteUserScreen.xaml;Dentist.xaml;DetailRecord.xaml;Employee\CreateAppointment.xaml;Employee\EditAppointment.xaml;Employee\EmployeeWindow.xaml;Employee\Invoice.xaml;MainWindow.xaml;ManageMedicineScreen.xaml;RegisterAccount.xaml;UpdateAppointment.xaml;UpdateMedicineWindow.xaml;UpdateScheduleDentist.xaml;
+AddAppointment.xaml;AddMedicalRecord.xaml;AddMedicineRecord.xaml;AddMedicineWindow.xaml;AddServiceRecord.xaml;Admin.xaml;Customer.xaml;DeleteUserScreen.xaml;Dentist.xaml;DetailRecord.xaml;Employee\CreateAppointment.xaml;Employee\EditAppointment.xaml;Employee\EmployeeWindow.xaml;Employee\Invoice.xaml;MainWindow.xaml;ManageMedicineScreen.xaml;RegisterAccount.xaml;UpdateAppE.xaml;UpdateAppointment.xaml;UpdateMedicineWindow.xaml;UpdateScheduleDentist.xaml;
 
 False
 
