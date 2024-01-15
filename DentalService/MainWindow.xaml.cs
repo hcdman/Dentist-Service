@@ -35,10 +35,13 @@ namespace DentalService
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = @"Server=.\SQLEXPRESS;
+            /*string connectionString = @"Server=.\SQLEXPRESS;
                                        Database = DentalClinicManagement;
-                                       Trusted_Connection = yes";
+                                       Trusted_Connection = yes";*/
             //var connectionString = ConfigurationManager.ConnectionStrings["TaiMSIConnectionString"].ConnectionString;
+            var connectionString = ConfigurationManager
+               .ConnectionStrings["DentalClinicManagementDbConnection"]
+               .ConnectionString;
             connection = new SqlConnection(connectionString);
             connection.Open();
             //get role 

@@ -18,15 +18,14 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Name Service" Width="*" Binding="{Binding ServiceName}" />
-           
                 <DataGridTextColumn Header="Price" Width="*" Binding="{Binding Price}" />
-               
-
             </DataGrid.Columns>
 
         </DataGrid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Width="60" Height="32" Click="Cancel_Click" FontWeight="Bold" Margin="5 5 50 5">Cancel</Button>
             <Button Width="60" Height="32" Click="Add_Service" FontWeight="Bold">Add</Button>
         </StackPanel>
+        
     </StackPanel>
 </Window>

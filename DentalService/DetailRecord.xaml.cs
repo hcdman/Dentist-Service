@@ -62,7 +62,7 @@ namespace DentalService
                 }
             }
             //get information dental service
-            var sql1 = "select * from MedicalRecord_DentalService,DentalService where MedicalRecord_DentalService.MRecordID= @idMR and MedicalRecord_DentalService.MRecordID=DentalService.DentalServiceID";
+            var sql1 = "select * from MedicalRecord_DentalService,DentalService where MedicalRecord_DentalService.MRecordID= @idMR and MedicalRecord_DentalService.DentalServiceID=DentalService.DentalServiceID";
             using (var command3 = new SqlCommand(sql1, connect))
             {
                 command3.Parameters.Add("@idMR", SqlDbType.Int).Value = mrID;
@@ -93,7 +93,6 @@ namespace DentalService
         {
             // id, connect
             var screen = new AddMedicineRecord(connection, ID,_dentist,cus);
-            this.Close();
             screen.Show();
         }
 
@@ -101,7 +100,6 @@ namespace DentalService
         {
             // id, connect
             var screen = new AddServiceRecord(connection, ID, _dentist, cus);
-            this.Close();
             screen.Show();
         }
 

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hoai0\\source\\repos\\DBMS2\\Dentist-Service\\DentalService\\DentalService.csproj": {}
+    "C:\\Users\\tantr\\OneDrive\\Desktop\\Dentist-Service\\Dentist-Service\\DentalService\\DentalService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hoai0\\source\\repos\\DBMS2\\Dentist-Service\\DentalService\\DentalService.csproj": {
+    "C:\\Users\\tantr\\OneDrive\\Desktop\\Dentist-Service\\Dentist-Service\\DentalService\\DentalService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hoai0\\source\\repos\\DBMS2\\Dentist-Service\\DentalService\\DentalService.csproj",
+        "projectUniqueName": "C:\\Users\\tantr\\OneDrive\\Desktop\\Dentist-Service\\Dentist-Service\\DentalService\\DentalService.csproj",
         "projectName": "DentalService",
-        "projectPath": "C:\\Users\\hoai0\\source\\repos\\DBMS2\\Dentist-Service\\DentalService\\DentalService.csproj",
-        "packagesPath": "C:\\Users\\hoai0\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hoai0\\source\\repos\\DBMS2\\Dentist-Service\\DentalService\\obj\\",
+        "projectPath": "C:\\Users\\tantr\\OneDrive\\Desktop\\Dentist-Service\\Dentist-Service\\DentalService\\DentalService.csproj",
+        "packagesPath": "C:\\Users\\tantr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tantr\\OneDrive\\Desktop\\Dentist-Service\\Dentist-Service\\DentalService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hoai0\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tantr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -86,7 +87,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

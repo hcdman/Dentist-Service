@@ -230,14 +230,12 @@ namespace DentalService
         private void add_record(object sender, RoutedEventArgs e)
         {
             var screen = new AddMedicalRecord(connectString,_dentist);
-            this.Close();
             screen.Show();
         }
 
         private void add_appointment(object sender, RoutedEventArgs e)
         {
             var screen = new AddAppointment(connectString, _dentist);
-            this.Close();
             screen.Show();
         }
 
