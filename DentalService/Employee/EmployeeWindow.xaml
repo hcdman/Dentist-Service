@@ -14,7 +14,7 @@
 
         <Border BorderThickness="1" BorderBrush="Black" Background="DimGray">
             <Grid  Margin="16 8 16 8" Height="32">
-                <Button  Width="120" Background="White" Click="LogoutButton_Click" Margin="16 0 0 0" HorizontalAlignment="Right" Content="Logout"/>
+                <Button  Width="120" Background="White" Click="LogoutButton_Click" Margin="16 0 0 0" HorizontalAlignment="Right" Content="Logout" />
 
                 <TextBlock  FontSize="20" Background="Transparent" Margin="16 0 0 0" HorizontalAlignment="Center" Text ="Employee"/>
             </Grid>
@@ -33,19 +33,15 @@
                         <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Employee</TextBlock>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Full name: "/>
-                            <TextBlock FontWeight="Medium" FontSize="14" Text="{Binding FullName}"/>
+                            <TextBlock FontWeight="Medium" FontSize="14" Text="{Binding Path=Customer.FullName}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0 8 0 8">
                             <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Birth Date: "/>
-                            <TextBlock FontWeight="Medium" FontSize="14" Text="{Binding Birthday}"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0 8 0 8">
-                            <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Address: "/>
-                            <TextBlock FontWeight="Medium" FontSize="14" Text="{Binding EmployeeAddress}"/>
+                            <TextBlock FontWeight="Medium" FontSize="14" Text="{Binding Path=Customer.Birthday}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Phone: "/>
-                            <TextBox FontSize="14" FontWeight="Medium" Text="{Binding PhoneNumber}"/>
+                            <TextBox x:Name="CustomerPhoneTextBox" FontSize="14" MinWidth="180" FontWeight="Medium" TextChanged="OnCustomerPhoneChanged" />
                         </StackPanel>
                         <StackPanel Orientation="Vertical" Margin="0 56 0 0">
                             <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="New Customer? "/>
@@ -63,9 +59,10 @@
                             <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Customer Upcomming Appointment</TextBlock>
                             <!--<DataGrid  IsReadOnly="False" ItemsSource="{Binding Path=UpcommingAppointmentList}">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Dentist" Width="*" />
-                                    <DataGridTextColumn Header="Appointment Date" Width="*"/>
-                                    <DataGridTextColumn Header="Appointment Time" Width="*"/>
+                                    <DataGridTextColumn Header="DentistID" Binding="{Binding DentistId}" Width="*"/>
+                                    <DataGridTextColumn Header="Appointment Date" Width="*" Binding="{Binding AppointmentDate, StringFormat={}{0:dd/MM/yyyy}}"/>
+                                    <DataGridTextColumn Header="Start Time" Binding="{Binding StartTime}" Width="*"/>
+                                    <DataGridTextColumn Header="End Time" Binding="{Binding EndTime}" Width="*"/>
                                 </DataGrid.Columns>
                             </DataGrid>-->
                             <DataGrid Name="CustomerAppoitment" IsReadOnly="True" AutoGenerateColumns="False">
@@ -86,7 +83,7 @@
                             <Separator Margin="0 8 0 8"></Separator>
 
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button Width="130" Click="CreateAppointment_Click" Height="32">Create</Button>
+                                <Button Name="CreateAppointmentButton" Width="130" IsEnabled="False" Click="CreateAppointment_Click" Height="32">Create</Button>
                                 <RibbonSeparator Margin="8"/>
                                 <!--<Button Width="130"  Height="32" Click="EditAppointment_Click">Edit</Button>-->
                             </StackPanel>

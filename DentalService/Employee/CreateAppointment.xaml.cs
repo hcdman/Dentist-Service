@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,27 +20,66 @@ namespace DentalService.Employee;
 /// Interaction logic for CreateAppointment.xaml
 /// </summary>
 public partial class CreateAppointment : Window {
+
+    public EmployeeViewModel ViewModel { get; set; } = EmployeeViewModel.GetInstance();
     public CreateAppointment() {
         InitializeComponent();
-        this.DataContext = this;
-        DentistsDataGrid.ItemsSource = DentistFreeTimeSchedule;
+        this.DataContext = ViewModel;
+        ViewModel.DentistFreeTimeSchedule.Clear();
     }
 
+    public void OnAppointmentDateChanged(object sender, SelectionChangedEventArgs e) {
+        if(StartTimeComboBox.SelectedItem == null || EndTimeComboBox.SelectedItem == null) {
+            return;
+        }
+        
+        var startTime = (int)StartTimeComboBox.SelectedItem;
+        var endTime = (int)EndTimeComboBox.SelectedItem;
+        var date = (DateTime)AppointmentDatePicker.SelectedDate;
+        ViewModel.SyncDentistFreeTimeSchedule(date, startTime, endTime);
+    }
 
-    public List<int> HourList { get; set; } = new List<int>() { 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 };
-    public ObservableCollection<DentisFreeTime> DentistFreeTimeSchedule = new() {
-        new() {DentistId=2, DentistName = "Conan", WorkingDay = new (2024/1/15), FreeHour=8},
-        new() {DentistId=2, DentistName = "Conan", WorkingDay = new (2024/1/15), FreeHour=9},
-        new() {DentistId=2, DentistName = "Conan", WorkingDay = new (2024/1/15), FreeHour=10},
-        new() {DentistId=2, DentistName = "Conan", WorkingDay = new (2024/1/15), FreeHour=13},
-        new() {DentistId=2, DentistName = "Conan", WorkingDay = new (2024/1/15), FreeHour=14},
-        new() {DentistId=2, DentistName = "Conan", WorkingDay = new (2024/1/15), FreeHour=15},
-        new() {DentistId=2, DentistName = "Conan", WorkingDay = new (2024/1/15), FreeHour=16},
-        new() {DentistId=1, DentistName = "Hulk", WorkingDay = new (2024/1/15), FreeHour=13},
-        new() {DentistId=1, DentistName = "Hulk", WorkingDay = new (2024/1/15), FreeHour=14},
-        new() {DentistId=1, DentistName = "Hulk", WorkingDay = new (2024/1/15), FreeHour=15},
-        new() {DentistId=1, DentistName = "Hulk", WorkingDay = new (2024/1/16), FreeHour=13},
-        new() {DentistId=1, DentistName = "Hulk", WorkingDay = new (2024/1/16), FreeHour=14},
-    };
+    public void OnStartTimeChanged(object sender, SelectionChangedEventArgs e) {
+        if (AppointmentDatePicker.SelectedDate == null || EndTimeComboBox.SelectedItem == null) {
+            return;
+        }
 
+        var startTime = (int)StartTimeComboBox.SelectedItem;
+        var endTime = (int)EndTimeComboBox.SelectedItem;
+        var date = (DateTime)AppointmentDatePicker.SelectedDate;
+        ViewModel.SyncDentistFreeTimeSchedule(date, startTime, endTime);
+    }
+
+    public void OnEndTimeChanged(object sender, SelectionChangedEventArgs e) {
+        if (AppointmentDatePicker.SelectedDate == null || StartTimeComboBox.SelectedItem == null) {
+            return;
+        }
+
+        var startTime = (int)StartTimeComboBox.SelectedItem;
+        var endTime = (int)EndTimeComboBox.SelectedItem;
+        var date = (DateTime)AppointmentDatePicker.SelectedDate;
+        ViewModel.SyncDentistFreeTimeSchedule(date, startTime, endTime);
+
+    }
+
+    private void CloseWindow(object sender, RoutedEventArgs e) {
+        //close window
+        this.Close();
+    }
+
+    private void CreateAppointmentClick(object sender, RoutedEventArgs e) {
+        try {
+            ViewModel.CreatAppointment();
+            this.Close();
+            ViewModel.SyncCommittedAppointmentList();
+        }
+        catch(Exception ex) {
+            MessageBox.Show(ex.Message);
+        }
+        //Task.Run(ViewModel.SyncCommittedAppointmentList);
+    }
+
+    private void DentistsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+        CreateAppointmentButton.IsEnabled = true;
+    }
 }

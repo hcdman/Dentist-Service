@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,12 +17,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace DentalService.Employee
+namespace DentalService.Employee;
+
+public partial class EmployeeWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for EmployeeWindow.xaml
-    /// </summary>
-    public partial class EmployeeWindow : Window
+    public EmployeeViewModel ViewModel { get; set; }
+    public EmployeeWindow(string connectionString, EmployeeM emp)
     {
         SqlConnection connection = new SqlConnection();
         string connectString;
@@ -63,24 +64,36 @@ namespace DentalService.Employee
             }
         }
 
+    private void CreateAppointment_Click(object sender, RoutedEventArgs e) {
+        var screen = new CreateAppointment();
+        screen.ShowDialog();
+    }
 
-        private void CreateAppointment_Click(object sender, RoutedEventArgs e) {
-            var screen = new CreateAppointment();
-            screen.ShowDialog();
-        }
+    private void EditAppointment_Click(object sender, RoutedEventArgs e) {
+        var screen = new EditAppointment();
+        screen.ShowDialog();
+    }
 
-        private void EditAppointment_Click(object sender, RoutedEventArgs e) {
-            var screen = new EditAppointment();
-            screen.ShowDialog();
-        }
+    private void InvoiceButton_Click(object sender, RoutedEventArgs e) {
+        var screen = new Invoice();
+        screen.ShowDialog();
+    }
 
-        private void InvoiceButton_Click(object sender, RoutedEventArgs e) {
-            var screen = new Invoice();
-            screen.ShowDialog();
-        }
+    private void LogoutButton_Click(object sender, RoutedEventArgs e) {
+        var screen = new MainWindow();
+        this.Close();
+        screen.Show();
+    }
 
-        private void LogoutButton_Click(object sender, RoutedEventArgs e) {
+    private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 
+    }
+
+    private void OnCustomerPhoneChanged(object sender, TextChangedEventArgs e) {
+        ViewModel.SyncCustomer(CustomerPhoneTextBox.Text);
+        if(ViewModel.Customer.CustomerID != 0) {
+            CreateAppointmentButton.IsEnabled = true;
+            EditAppointmentButton.IsEnabled = true;
         }
 
         private void UpdateClick(object sender, RoutedEventArgs e)
@@ -115,5 +128,15 @@ namespace DentalService.Employee
             this.Close();
             screen.Show();
         }
+    }
+
+    private void DirtyReadClick(object sender, RoutedEventArgs e) {
+        ViewModel.SyncUncommmittedAppointmentList();
+    }
+
+    private void ReadCommittedClick(object sender, RoutedEventArgs e) {
+        LoadingLabel.Visibility = Visibility.Visible;
+        ViewModel.SyncCommittedAppointmentList();
+        LoadingLabel.Visibility = Visibility.Hidden;
     }
 }
