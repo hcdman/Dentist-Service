@@ -52,7 +52,10 @@ namespace DentalService
                 //get data of information
                 DateTime? selectedDate = apDate.SelectedDate;
                 string newDate = selectedDate.Value.ToString("yyyy-MM-dd");
-                var sql = "exec sp_Edit_APDATE @Id,@newDate";
+                
+                var sql = @"use DentalClinicManagement
+                            go
+                            exec sp_Edit_APDATE  @Id,@newDate";
                 var command = new SqlCommand(sql, connection);
                 command.Parameters.Add("@id", SqlDbType.Int).Value = _dentist.DentistID;
                 command.Parameters.Add("@newDate", SqlDbType.VarChar).Value = newDate;
@@ -77,7 +80,7 @@ namespace DentalService
             {
                 connection.Close(); // Close the connection in the finally block to ensure it is closed even if an exception occurs.
             }
-            var screen = new Dentist(connect, _dentist);
+          
         }
     }
 }

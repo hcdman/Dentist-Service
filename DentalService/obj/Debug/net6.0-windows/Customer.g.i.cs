@@ -61,7 +61,7 @@ namespace DentalService {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/DentalService;component/customer.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/DentalService;V1.0.0.0;component/customer.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Customer.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

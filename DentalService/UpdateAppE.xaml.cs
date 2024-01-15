@@ -62,28 +62,56 @@ namespace DentalService
         private void UpdateClick(object sender, RoutedEventArgs e)
         {
             try
-            { 
-            //get data, run sql update data
-            var screen = new Employee.EmployeeWindow(connect, emp);
-            //get data of information
-            int newDentistID = 0;
-            int.TryParse(dent.Text, out newDentistID);
-            var sql = "exec sp_Edit_APDENTIST @id,@newDentist";
-            var command = new SqlCommand(sql, connection);
-            command.Parameters.Add("@id", SqlDbType.VarChar).Value = app.AppointmentId;
-            command.Parameters.Add("@newDentist", SqlDbType.VarChar).Value = newDentistID;
-                int rowsAffected = command.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
+            {
+                //get data, run sql update data
+                var screen = new Employee.EmployeeWindow(connect, emp);
+                DateTime? selectedDate = apDate.SelectedDate;
+                string newDate = selectedDate.Value.ToString("yyyy-MM-dd");
+                if(selectedDate.Value.ToString("dd-MM-yyyy")!= app.AppointmentDate)
                 {
-                    MessageBox.Show("Update successful!");
-                    this.Close();
-                    screen.Show();
+                    var sql = @"
+                            exec sp_Edit_APDATE  @id,@newDate";
+                    var command = new SqlCommand(sql, connection);
+                    command.Parameters.Add("@id", SqlDbType.Int).Value = app.AppointmentId;
+                    command.Parameters.Add("@newDate", SqlDbType.VarChar).Value = newDate;
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Update successful!");
+                        this.Close();
+                        screen.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Update failed. No rows affected.");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Update failed. No rows affected.");
+                    //get data of information
+                    int newDentistID = 0;
+                    int.TryParse(dent.Text, out newDentistID);
+                    var sql = @"
+                              exec sp_Edit_APDENTIST @id,@newDentist";
+                    var command = new SqlCommand(sql, connection);
+                    command.Parameters.Add("@id", SqlDbType.Int).Value = app.AppointmentId;
+                    command.Parameters.Add("@newDentist", SqlDbType.Int).Value = newDentistID;
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Update successful!");
+                        this.Close();
+                        screen.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Update failed. No rows affected.");
+                    }
                 }
+
+           
         }
         catch(Exception ex)
             {

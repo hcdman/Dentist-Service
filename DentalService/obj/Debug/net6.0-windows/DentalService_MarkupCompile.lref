@@ -1,10 +1,15 @@
 ﻿
 
+FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\AddAppointment.xaml;;
+FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\AddMedicalRecord.xaml;;
+FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\AddMedicineRecord.xaml;;
 FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\AddMedicineWindow.xaml;;
+FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\AddServiceRecord.xaml;;
 FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\Admin.xaml;;
 FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\Customer.xaml;;
 FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\DeleteUserScreen.xaml;;
 FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\Dentist.xaml;;
+FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\DetailRecord.xaml;;
 FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\Employee\CreateAppointment.xaml;;
 FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\Employee\EditAppointment.xaml;;
 FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\Employee\EmployeeWindow.xaml;;
@@ -12,13 +17,8 @@ FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\Employee\Invoic
 FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\MainWindow.xaml;;
 FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\ManageMedicineScreen.xaml;;
 FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\RegisterAccount.xaml;;
-FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\UpdateMedicineWindow.xaml;;
-FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\UpdateAppointment.xaml;;
-FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\AddMedicineRecord.xaml;;
-FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\AddServiceRecord.xaml;;
-FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\DetailRecord.xaml;;
-FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\AddAppointment.xaml;;
-FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\AddMedicalRecord.xaml;;
-FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\UpdateScheduleDentist.xaml;;
 FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\UpdateAppE.xaml;;
+FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\UpdateAppointment.xaml;;
+FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\UpdateMedicineWindow.xaml;;
+FC:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\UpdateScheduleDentist.xaml;;
 
