@@ -73,6 +73,32 @@ namespace DentalService
 
         private void Add_Service(object sender, RoutedEventArgs e)
         {
+            //get data of information
+            List<int> listIdOfService = new List<int>();
+            foreach (var item in Servicelist.SelectedItems)
+            {
+                DentalServiceM service = item as DentalServiceM;
+                listIdOfService.Add(service.DentalServiceId);
+            }
+            //insert data to database
+            // use proc sp_addServiceToMRecord, truyền vào ID và listIdOfService
+            for(int i = 0; i < listIdOfService.Count; i++)
+            {
+                var sql = "exec sp_addServiceToMRecord @id,@idService";
+                var command = new SqlCommand(sql, cn);
+                command.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = ID;
+                command.Parameters.Add("@idService", System.Data.SqlDbType.Int).Value = listIdOfService[i];
+                int rowsAffected = command.ExecuteNonQuery();
+            }
+
+            var screen = new DetailRecord(cn, dt, cu, ID);
+            this.Close();
+            screen.Show();
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            // Quay về màn hình trước
             var screen = new DetailRecord(cn, dt, cu, ID);
             this.Close();
             screen.Show();

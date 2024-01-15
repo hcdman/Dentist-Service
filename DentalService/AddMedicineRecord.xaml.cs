@@ -81,6 +81,48 @@ namespace DentalService
 
         private void Add_Medicine(object sender, RoutedEventArgs e)
         {
+            // Tạo map để lưu danh sách thuốc được chọn, và số lượng
+            Dictionary<MedicineM, int> list = new Dictionary<MedicineM, int>();
+            
+            foreach (MedicineM item in Medicinelist.SelectedItems)
+            {
+                // hiển thị hộp thoại nhập số lượng, tạo 1 textbox đơn giản
+                var inputDialog = new InputQuantiTyDialog(item.MedicineName);
+                int quantity;
+                if (inputDialog.ShowDialog() == true)
+                {
+                    quantity = int.Parse(inputDialog.Answer);
+                } else
+                {
+                    quantity = 0;
+                }
+                // thêm vào map
+                list.Add(item, quantity);
+
+            }
+
+            // for để dùng sp_addMedicineToMRecord, truyền vào @MRecordID INT, @MedicineID INT,@Quantity INT
+            for(int i = 0; i < list.Count; i++)
+            {
+                /*var sql = "sp_addMedicineToMRecord";*/
+                var sql = "addServiceToMRFixed";
+                using (var command = new SqlCommand(sql, cn))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@MRecordID", ID);
+                    command.Parameters.AddWithValue("@MedicineID", list.ElementAt(i).Key.MedicineID);
+                    command.Parameters.AddWithValue("@Quantity", list.ElementAt(i).Value);
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            var screen = new DetailRecord(cn, dt, cu, ID);
+            this.Close();
+            screen.Show();
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
             var screen = new DetailRecord(cn, dt, cu, ID);
             this.Close();
             screen.Show();
