@@ -22,12 +22,11 @@ namespace DentalService.Employee;
 public partial class EmployeeWindow : Window
 {
     public EmployeeViewModel ViewModel { get; set; }
-    public EmployeeWindow(string connectionString, EmployeeM emp)
-    {
-        SqlConnection connection = new SqlConnection();
-        string connectString;
-        EmployeeM _emp;
-        BindingList<AppointmentM> _appointment = new BindingList<AppointmentM>();
+    
+    SqlConnection connection = new SqlConnection();
+    string connectString;
+    EmployeeM _emp;
+    BindingList<AppointmentM> _appointment = new BindingList<AppointmentM>();
 
         public EmployeeWindow(string connect, EmployeeM emp)
         {
@@ -90,13 +89,13 @@ public partial class EmployeeWindow : Window
     }
 
     private void OnCustomerPhoneChanged(object sender, TextChangedEventArgs e) {
-        ViewModel.SyncCustomer(CustomerPhoneTextBox.Text);
-        if(ViewModel.Customer.CustomerID != 0) {
-            CreateAppointmentButton.IsEnabled = true;
-            EditAppointmentButton.IsEnabled = true;
-        }
-
-        private void UpdateClick(object sender, RoutedEventArgs e)
+        //ViewModel.SyncCustomer(CustomerPhoneTextBox.Text);
+        //if (ViewModel.Customer.CustomerID != 0) {
+        //    CreateAppointmentButton.IsEnabled = true;
+        //    EditAppointmentButton.IsEnabled = true;
+        //}
+    }
+    private void UpdateClick(object sender, RoutedEventArgs e)
         {
             Button clickedButton = sender as Button;
             AppointmentM tempp = _appointment[0];
@@ -128,15 +127,15 @@ public partial class EmployeeWindow : Window
             this.Close();
             screen.Show();
         }
-    }
+    
 
-    private void DirtyReadClick(object sender, RoutedEventArgs e) {
-        ViewModel.SyncUncommmittedAppointmentList();
-    }
+    //private void DirtyReadClick(object sender, RoutedEventArgs e) {
+    //    ViewModel.SyncUncommmittedAppointmentList();
+    //}
 
-    private void ReadCommittedClick(object sender, RoutedEventArgs e) {
-        LoadingLabel.Visibility = Visibility.Visible;
-        ViewModel.SyncCommittedAppointmentList();
-        LoadingLabel.Visibility = Visibility.Hidden;
-    }
+    //private void ReadCommittedClick(object sender, RoutedEventArgs e) {
+    //    LoadingLabel.Visibility = Visibility.Visible;
+    //    ViewModel.SyncCommittedAppointmentList();
+    //    LoadingLabel.Visibility = Visibility.Hidden;
+    //}
 }

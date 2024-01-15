@@ -29,7 +29,7 @@ public class DataAccess {
             customer.FullName = (string)reader["FullName"];
             customer.CustomerAddress = (string)reader["CustomerAddress"];
             customer.PhoneNumber = (string)reader["PhoneNumber"];
-            customer.Birthday = ((DateTime)reader["Birthday"]).ToString("dd/MM/yyyy");
+            customer.Birthday = ((DateTime)reader["Birthday"]);
         }
         reader.Close();
         connection.Close();

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ndnhattan\\source\\repos\\Dentist-Service\\DentalService\\DentalService.csproj": {}
+    "C:\\Users\\cvtai\\OneDrive\\Desktop\\Dentist-Service\\DentalService\\DentalService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ndnhattan\\source\\repos\\Dentist-Service\\DentalService\\DentalService.csproj": {
+    "C:\\Users\\cvtai\\OneDrive\\Desktop\\Dentist-Service\\DentalService\\DentalService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ndnhattan\\source\\repos\\Dentist-Service\\DentalService\\DentalService.csproj",
+        "projectUniqueName": "C:\\Users\\cvtai\\OneDrive\\Desktop\\Dentist-Service\\DentalService\\DentalService.csproj",
         "projectName": "DentalService",
-        "projectPath": "C:\\Users\\ndnhattan\\source\\repos\\Dentist-Service\\DentalService\\DentalService.csproj",
-        "packagesPath": "C:\\Users\\ndnhattan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ndnhattan\\source\\repos\\Dentist-Service\\DentalService\\obj\\",
+        "projectPath": "C:\\Users\\cvtai\\OneDrive\\Desktop\\Dentist-Service\\DentalService\\DentalService.csproj",
+        "packagesPath": "C:\\Users\\cvtai\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cvtai\\OneDrive\\Desktop\\Dentist-Service\\DentalService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ndnhattan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cvtai\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,8 +26,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {}
         },
         "frameworks": {
           "net6.0-windows7.0": {
