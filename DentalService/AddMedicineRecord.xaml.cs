@@ -104,8 +104,8 @@ namespace DentalService
             // for để dùng sp_addMedicineToMRecord, truyền vào @MRecordID INT, @MedicineID INT,@Quantity INT
             for(int i = 0; i < list.Count; i++)
             {
-                /*var sql = "sp_addMedicineToMRecord";*/
-                var sql = "addServiceToMRFixed";
+                //var sql = "sp_addMedicineToMRecord";
+                var sql = "sp_addMedicineToPrescription_second_fixed";
                 using (var command = new SqlCommand(sql, cn))
                 {
                     command.CommandType = CommandType.StoredProcedure;

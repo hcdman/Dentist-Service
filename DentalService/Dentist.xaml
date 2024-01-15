@@ -107,7 +107,7 @@
                                     <DataGridTemplateColumn >
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <Button x:Name="UpdateAp" Tag="{Binding ScheduleId}" Content="Update" Click="UpdateClick" />
+                                                <Button x:Name="UpdateAp" Tag="{Binding AppointmentId}" Content="Update" Click="UpdateClick" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>

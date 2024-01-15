@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\obj\Debug\net6.0-windows\
+C:\Users\ndnhattan\source\repos\Dentist-Service\DentalService\obj\Debug\net6.0-windows\
 DentalService
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\hoai0\source\repos\DBMS2\Dentist-Service\DentalService\App.xaml
-21-705301504
+C:\Users\ndnhattan\source\repos\Dentist-Service\DentalService\App.xaml
+22-2074089991
 
-35770063698
-212891255812
-AddAppointment.xaml;AddMedicalRecord.xaml;AddMedicineRecord.xaml;AddMedicineWindow.xaml;AddServiceRecord.xaml;Admin.xaml;Customer.xaml;DeleteUserScreen.xaml;Dentist.xaml;DetailRecord.xaml;Employee\CreateAppointment.xaml;Employee\EditAppointment.xaml;Employee\EmployeeWindow.xaml;Employee\Invoice.xaml;MainWindow.xaml;ManageMedicineScreen.xaml;RegisterAccount.xaml;UpdateAppE.xaml;UpdateAppointment.xaml;UpdateMedicineWindow.xaml;UpdateScheduleDentist.xaml;
+36376022054
+212-991387426
+AddAppointment.xaml;AddMedicalRecord.xaml;AddMedicineRecord.xaml;AddMedicineWindow.xaml;AddServiceRecord.xaml;Admin.xaml;Customer.xaml;DeleteUserScreen.xaml;Dentist.xaml;DetailRecord.xaml;Employee\CreateAppointment.xaml;Employee\EditAppointment.xaml;Employee\EmployeeWindow.xaml;Employee\Invoice.xaml;InputQuantiTyDialog.xaml;MainWindow.xaml;ManageMedicineScreen.xaml;RegisterAccount.xaml;UpdateAppE.xaml;UpdateAppointment.xaml;UpdateMedicineWindow.xaml;UpdateScheduleDentist.xaml;
 
 False
 

@@ -86,6 +86,11 @@
                                 <Button Width="130" Height="32" Click="Add_Service">Add</Button>
 
                             </StackPanel>
+                            <Separator Margin="0 20 0 20" BorderThickness="2" BorderBrush="Black"></Separator>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBlock FontWeight="Medium" FontSize="14" Width="100" Text="Total price: "/>
+                                <TextBlock FontWeight="Medium" FontSize="14" Text="" Name="totalPriceTxt"/>
+                            </StackPanel>
                         </StackPanel>
                     </Grid>
                 </Border>

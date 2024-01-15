@@ -82,6 +82,23 @@ namespace DentalService
                     Servicelist.ItemsSource = _service;
                 }
             }
+
+            var sqlTotalPrice = "select * from Invoice where MedicalRecord = @idMR";
+            using (var command3 = new SqlCommand(sqlTotalPrice, connect))
+            {
+                command3.Parameters.Add("@idMR", SqlDbType.Int).Value = mrID;
+                using (var reader = command3.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int price = (int)reader["TotalCost"];
+
+                        totalPriceTxt.Text = price.ToString();
+                    }
+
+                  
+                }
+            }
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)

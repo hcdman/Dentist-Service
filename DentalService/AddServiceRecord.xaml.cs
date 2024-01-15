@@ -84,7 +84,8 @@ namespace DentalService
             // use proc sp_addServiceToMRecord, truyền vào ID và listIdOfService
             for(int i = 0; i < listIdOfService.Count; i++)
             {
-                var sql = "exec sp_addServiceToMRecord @id,@idService";
+                //var sql = "exec sp_addServiceToMRecord @id,@idService";
+                var sql = "exec addServiceToMRFixed @id,@idService";
                 var command = new SqlCommand(sql, cn);
                 command.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = ID;
                 command.Parameters.Add("@idService", System.Data.SqlDbType.Int).Value = listIdOfService[i];
