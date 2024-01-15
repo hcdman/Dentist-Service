@@ -10,25 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\cvtai\OneDrive\Desktop\Dentist-Service\DentalService\App.xaml
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 28c0a3dae8736661277f1e65681fdf4c0225907c
 13-85921331
 
-25292968317
+28-1759896795
 2121347855708
 AddMedicineWindow.xaml;Admin.xaml;Customer.xaml;DeleteUserScreen.xaml;Dentist.xaml;Employee\CreateAppointment.xaml;Employee\EditAppointment.xaml;Employee\EmployeeWindow.xaml;Employee\Invoice.xaml;MainWindow.xaml;ManageMedicineScreen.xaml;RegisterAccount.xaml;UpdateMedicineWindow.xaml;
-<<<<<<< HEAD
-=======
-=======
-10-1188463757
 
-18-671529427
-211-1922847134
-AddMedicineWindow.xaml;Admin.xaml;Customer.xaml;DeleteUserScreen.xaml;Dentist.xaml;Employee.xaml;MainWindow.xaml;ManageMedicineScreen.xaml;RegisterAccount.xaml;UpdateMedicineWindow.xaml;
->>>>>>> main
->>>>>>> 28c0a3dae8736661277f1e65681fdf4c0225907c
-
-False
+True
 

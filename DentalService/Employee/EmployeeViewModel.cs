@@ -1,71 +1,100 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using DentalService.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DentalService.Employee; 
 
-public class EmployeeViewModel : ObservableObject
+public partial class EmployeeViewModel : ObservableRecipient
 {
     private static EmployeeViewModel? instance;
+    private DataAccess Accessor;
     public EmployeeViewModel(string connectionString, EmployeeM emp) {
         instance ??= this; 
-
         Employee = emp;
-        ConnectionString = connectionString;
-        SyncAppointmentList();
+        Accessor = new DataAccess(connectionString);
+        Customer = new CustomerM();
+        SelectedFreeTimeSlot = null;
     }
 
     public static EmployeeViewModel GetInstance() {
         return instance ?? new EmployeeViewModel("", new EmployeeM());
     }
 
-    private void SyncAppointmentList() {
-        using SqlConnection connection = new(ConnectionString);
-        connection.Open();
-        SqlCommand command = new(ReadUncommittedAppointmentProc, connection);
-        using SqlDataReader reader = command.ExecuteReader();
-        while (reader.Read()) {
-            Appointment appointment = new() {
-                AppointmentID = (int)reader["AppointmentID"],
-                CustomerID = (int)reader["CustomerID"],
-                DentistId = (int)reader["DentistId"],
-                AppointmentDate = (DateTime)reader["AppointmentDate"],
-                StartTime = (TimeSpan)reader["StartTime"],
-                EndTime = (TimeSpan)reader["EndTime"]
-            };
-                UncommittedUpcommingAppointmentList.Add(appointment);
-        }
-        reader.Close();
+    public void SyncCommittedAppointmentList() {
+        UpcommingAppointmentList.Clear();
 
-        command = new(ReadCommittedAppointmentProc, connection);
-        using SqlDataReader reader2 = command.ExecuteReader();
-        while (reader2.Read()) {
-            Appointment appointment = new() {
-                AppointmentID = (int)reader2["AppointmentID"],
-                CustomerID = (int)reader2["CustomerID"],
-                DentistId = (int)reader2["DentistId"],
-                AppointmentDate = (DateTime)reader2["AppointmentDate"],
-                StartTime = (TimeSpan)reader2["StartTime"],
-                EndTime = (TimeSpan)reader2["EndTime"]
-            };
-            CommittedUpcommingAppointmentList.Add(appointment);
+        var data = Accessor.GetUpcommingAppointmentOfCustomerCommitted(Customer.CustomerID);
+        foreach (var item in data) {
+            UpcommingAppointmentList.Add(item);
+        }
+     
+    }
+    public void SyncUncommmittedAppointmentList() {
+        var data = Accessor.GetUpcommingAppointmentOfCustomerUncommitted(Customer.CustomerID);
+        UpcommingAppointmentList.Clear();
+        foreach (var item in data) {
+            UpcommingAppointmentList.Add(item);
+        }
+    }
+    public void SyncCustomer(string phoneSearchText) {
+        if(phoneSearchText.Length != 10) {
+            return;
+        }
+        Debug.WriteLine(phoneSearchText);
+        Customer = Accessor.GetCustomerByPhone(phoneSearchText);
+        SyncCommittedAppointmentList();
+    }
+
+    public void SyncDentistFreeTimeSchedule(DateTime date, int startHour, int endHour) {
+        var data = Accessor.GetDentistsFreeTimeSlots(date, startHour, endHour);
+        Debug.WriteLine(data.Count);
+        DentistFreeTimeSchedule.Clear();
+        foreach(var item in data) {
+            DentistFreeTimeSchedule.Add(item);
         }
     }
 
+    public void CreatAppointment() {
+        if(SelectedFreeTimeSlot == null) {
+            return;
+        }
 
+        try {
+            var appointment = new Appointment() {
+                CustomerID = Customer.CustomerID,
+                DentistId = SelectedFreeTimeSlot.DentistID,
+                AppointmentDate = SelectedFreeTimeSlot.WorkingDay,
+                StartTime = new TimeSpan(SelectedFreeTimeSlot.FreeHour, 0, 0),
+                EndTime = new TimeSpan(SelectedFreeTimeSlot.FreeHour + 1, 0, 0)
+            };
+            Accessor.CreateAppointment(appointment);
+        }
+        catch (Exception) {
+            throw;
+        }  
+    }
+    
+    [ObservableProperty]
+    private EmployeeM employee;
 
-    const string ReadUncommittedAppointmentProc = "EXEC ReadAppointmentsByCustomerUncommitted @CustomerID = 1";
-    const string ReadCommittedAppointmentProc = "EXEC ReadAppointmentsByCustomerCommitted @CustomerID = 1";
+    [ObservableProperty]
+    private CustomerM customer;
 
-    private string ConnectionString;
-    public EmployeeM Employee { get; set; }
-    public ObservableCollection<Appointment> CommittedUpcommingAppointmentList { get; set; } = new();
-    public ObservableCollection<Appointment> UncommittedUpcommingAppointmentList { get; set; } = new();
+    [ObservableProperty]
+    private DentisFreeTimeSlot? selectedFreeTimeSlot;
+
+    public ObservableCollection<Appointment> UpcommingAppointmentList { get; set; } = new();
+    public ObservableCollection<DentisFreeTimeSlot> DentistFreeTimeSchedule { get; set; } = new();
+    
+    public List<int> HourList { get; set; } = new List<int>() { 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 };
 
 }

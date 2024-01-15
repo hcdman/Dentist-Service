@@ -20,11 +20,12 @@ namespace DentalService.Employee;
 
 public partial class EmployeeWindow : Window
 {
-
+    public EmployeeViewModel ViewModel { get; set; }
     public EmployeeWindow(string connectionString, EmployeeM emp)
     {
         InitializeComponent();
-        this.DataContext = new EmployeeViewModel(connectionString, emp);
+        ViewModel = new EmployeeViewModel(connectionString, emp);
+        this.DataContext = ViewModel;
     }
 
 
@@ -51,5 +52,23 @@ public partial class EmployeeWindow : Window
 
     private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 
+    }
+
+    private void OnCustomerPhoneChanged(object sender, TextChangedEventArgs e) {
+        ViewModel.SyncCustomer(CustomerPhoneTextBox.Text);
+        if(ViewModel.Customer.CustomerID != 0) {
+            CreateAppointmentButton.IsEnabled = true;
+            EditAppointmentButton.IsEnabled = true;
+        }
+    }
+
+    private void DirtyReadClick(object sender, RoutedEventArgs e) {
+        ViewModel.SyncUncommmittedAppointmentList();
+    }
+
+    private void ReadCommittedClick(object sender, RoutedEventArgs e) {
+        LoadingLabel.Visibility = Visibility.Visible;
+        ViewModel.SyncCommittedAppointmentList();
+        LoadingLabel.Visibility = Visibility.Hidden;
     }
 }
