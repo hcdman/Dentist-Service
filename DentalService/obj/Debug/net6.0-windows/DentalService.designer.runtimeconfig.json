@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\cvtai\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\cvtai\\.nuget\\packages",
+      "C:\\Users\\hoai0\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\hoai0\\.nuget\\packages",
       "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {

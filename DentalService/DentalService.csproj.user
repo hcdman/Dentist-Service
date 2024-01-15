@@ -7,7 +7,19 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AddAppointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AddMedicalRecord.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AddMedicineRecord.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AddMedicineWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AddServiceRecord.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Admin.xaml.cs">
@@ -22,6 +34,9 @@
     <Compile Update="Dentist.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="DetailRecord.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Employee\CreateAppointment.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -34,12 +49,33 @@
     <Compile Update="RegisterAccount.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UpdateAppE.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UpdateAppointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UpdateMedicineWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UpdateScheduleDentist.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AddAppointment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AddMedicalRecord.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AddMedicineRecord.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="AddMedicineWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AddServiceRecord.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Admin.xaml">
@@ -52,6 +88,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dentist.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DetailRecord.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Employee\CreateAppointment.xaml">
@@ -69,7 +108,16 @@
     <Page Update="RegisterAccount.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="UpdateAppE.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UpdateAppointment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="UpdateMedicineWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UpdateScheduleDentist.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

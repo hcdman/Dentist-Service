@@ -94,7 +94,7 @@ namespace DentalService
                                     PhoneNumber = reader.GetString(
                                         reader.GetOrdinal("PhoneNumber")
                                     ),
-                                    Birthday = reader.GetDateTime(reader.GetOrdinal("Birthday")).ToString("dd/MM/yyyy")
+                                    Birthday = reader.GetDateTime(reader.GetOrdinal("Birthday"))
                                 };
                                 customers.Add(customer);
                             }

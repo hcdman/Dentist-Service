@@ -1,0 +1,31 @@
+﻿<Window x:Class="DentalService.AddServiceRecord"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DentalService"
+        mc:Ignorable="d"
+        Title="AddServiceRecord" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14">Add Service to Medical Record</TextBlock>
+        <DataGrid Name="Servicelist" IsReadOnly="True" AutoGenerateColumns="False" Margin="10">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox FontWeight="Medium" Checked="Option_Checked" Unchecked="Option_Unchecked" Tag="{Binding DentalServiceId}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Name Service" Width="*" Binding="{Binding ServiceName}" />
+                <DataGridTextColumn Header="Price" Width="*" Binding="{Binding Price}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Width="60" Height="32" Click="Cancel_Click" FontWeight="Bold" Margin="5 5 50 5">Cancel</Button>
+            <Button Width="60" Height="32" Click="Add_Service" FontWeight="Bold">Add</Button>
+        </StackPanel>
+        
+    </StackPanel>
+</Window>
