@@ -50,7 +50,7 @@ namespace DentalService
             try
             {
                 //get data, run sql update data
-                var screenn = new Dentist(connect, _dentist);
+              
                 //get data of information
                 DateTime? selectedDate = apDate.SelectedDate;
                 string newDate = selectedDate.Value.ToString("yyyy-MM-dd");
@@ -76,6 +76,7 @@ namespace DentalService
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show("Update successful!");
+                    var screenn = new Dentist(connect, _dentist);
                     this.Close();
                     screenn.Show();
                 }

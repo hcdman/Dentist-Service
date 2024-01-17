@@ -64,7 +64,7 @@ namespace DentalService
         {
             try
             {
-                var screen = new Employee.EmployeeWindow(connect, emp);
+               
                 //circle deadlock
                 //check endtime change
                 string newE = endTime.Text;
@@ -80,6 +80,7 @@ namespace DentalService
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Update successful!");
+                        var screen = new Employee.EmployeeWindow(connect, emp);
                         this.Close();
                         screen.Show();
                     }
@@ -106,6 +107,7 @@ namespace DentalService
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Update successful!");
+                            var screen = new Employee.EmployeeWindow(connect, emp);
                             this.Close();
                             screen.Show();
                         }
@@ -129,6 +131,7 @@ namespace DentalService
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Update successful!");
+                            var screen = new Employee.EmployeeWindow(connect, emp);
                             this.Close();
                             screen.Show();
                         }
