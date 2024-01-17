@@ -4,23 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\ndnhattan\source\repos\Dentist-Service\DentalService\obj\Debug\net6.0-windows\
+C:\Users\hoai0\Downloads\Dentist-Service\Dentist-Service\DentalService\obj\Debug\net6.0-windows\
 DentalService
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\ndnhattan\source\repos\Dentist-Service\DentalService\App.xaml
+C:\Users\hoai0\Downloads\Dentist-Service\Dentist-Service\DentalService\App.xaml
 22-2074089991
 
-<<<<<<< HEAD
-26-1925598257
-2121347855708
-AddMedicineWindow.xaml;Admin.xaml;Customer.xaml;DeleteUserScreen.xaml;Dentist.xaml;Employee\CreateAppointment.xaml;Employee\EditAppointment.xaml;Employee\EmployeeWindow.xaml;Employee\Invoice.xaml;MainWindow.xaml;ManageMedicineScreen.xaml;RegisterAccount.xaml;UpdateMedicineWindow.xaml;
-=======
-36376022054
-212-991387426
+39-1676843058
+212891255812
 AddAppointment.xaml;AddMedicalRecord.xaml;AddMedicineRecord.xaml;AddMedicineWindow.xaml;AddServiceRecord.xaml;Admin.xaml;Customer.xaml;DeleteUserScreen.xaml;Dentist.xaml;DetailRecord.xaml;Employee\CreateAppointment.xaml;Employee\EditAppointment.xaml;Employee\EmployeeWindow.xaml;Employee\Invoice.xaml;InputQuantiTyDialog.xaml;MainWindow.xaml;ManageMedicineScreen.xaml;RegisterAccount.xaml;UpdateAppE.xaml;UpdateAppointment.xaml;UpdateMedicineWindow.xaml;UpdateScheduleDentist.xaml;
->>>>>>> main
 
 False
 

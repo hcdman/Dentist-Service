@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,7 @@ namespace DentalService
     public partial class UpdateScheduleDentist : Window
     {
         DentistM _dentist;
+        DentistScheduleM _sche;
         SqlConnection connection;
         string connect;
         public UpdateScheduleDentist( DentistScheduleM sche, SqlConnection cn, DentistM dt)
@@ -35,7 +37,7 @@ namespace DentalService
             connect = connectionString;
             connection = new SqlConnection(connectionString);
             connection.Open();
-          
+            _sche = sche;
             _dentist = dt;
             this.DataContext = sche;
             apDate.SelectedDate = sche.WorkingDay.Equals("") ? DateTime.Now : DateTime.ParseExact(sche.WorkingDay, "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
@@ -48,16 +50,26 @@ namespace DentalService
             try
             {
                 //get data, run sql update data
-                var screenn = new Dentist(connect,_dentist);
+                var screenn = new Dentist(connect, _dentist);
                 //get data of information
                 DateTime? selectedDate = apDate.SelectedDate;
                 string newDate = selectedDate.Value.ToString("yyyy-MM-dd");
-                
-                var sql = @"use DentalClinicManagement
-                            go
-                            exec sp_Edit_APDATE  @Id,@newDate";
+                string workingDayStr = _sche.WorkingDay;
+                DateTime workingDay;
+
+                DateTime.TryParseExact(workingDayStr, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out workingDay);
+
+                string oldDate = workingDay.ToString("yyyy-MM-dd");
+
+
+
+
+
+
+                var sql = @"exec sp_UPDATE_WORKDAY @id,@oldDate,@newDate";
                 var command = new SqlCommand(sql, connection);
                 command.Parameters.Add("@id", SqlDbType.Int).Value = _dentist.DentistID;
+                command.Parameters.Add("@oldDate", SqlDbType.VarChar).Value = oldDate;
                 command.Parameters.Add("@newDate", SqlDbType.VarChar).Value = newDate;
                 int rowsAffected = command.ExecuteNonQuery();
 
@@ -80,7 +92,7 @@ namespace DentalService
             {
                 connection.Close(); // Close the connection in the finally block to ensure it is closed even if an exception occurs.
             }
-          
+
         }
     }
 }

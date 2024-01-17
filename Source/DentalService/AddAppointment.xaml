@@ -1,0 +1,57 @@
+﻿<Window x:Class="DentalService.AddAppointment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DentalService"
+        mc:Ignorable="d"
+        Title="AddAppointment" Height="500" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 14" FontWeight="Bold">Add Appointment</TextBlock>
+        <Label Content="Appointment Date" Grid.Row="1" Margin="5" FontSize="16" FontWeight="Bold" />
+        <DatePicker x:Name="apDate" Grid.Row="2" Margin="5" />
+
+        <Label Content="Customer ID" Grid.Row="3" Margin="5" FontSize="16" FontWeight="Bold" />
+        <TextBox x:Name="strTim" Grid.Row="4" Margin="5" FontSize="16" Text="{Binding StartTime}" />
+
+        <Label Content="Start time" Grid.Row="5" Margin="5" FontSize="16" FontWeight="Bold" />
+        <TextBox x:Name="strTime" Grid.Row="6" Margin="5" FontSize="16" Text="{Binding StartTime}" />
+
+        <Label Content="End time" Grid.Row="7" Margin="5" FontSize="16" FontWeight="Bold" />
+        <TextBox x:Name="endTime" Grid.Row="8" Margin="5" FontSize="16" Text="{Binding EndTime}" />
+
+
+        <!--<Label Content="Status" Grid.Row="6" Margin="5" FontSize="16" FontWeight="Bold" />
+  <TextBox x:Name="status" Grid.Row="7" Margin="5" FontSize="16" Text="{Binding Status}"/>-->
+
+
+
+        <Button Content="Add"
+       Grid.Row="9"
+      Click="AddClick"
+       Margin="0,25,0,9"
+       HorizontalAlignment="Center"
+       Padding="10,5"
+       Width="120" 
+       FontSize="20"
+       FontWeight="Bold"/>
+    </Grid>
+</Window>

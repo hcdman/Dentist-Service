@@ -43,6 +43,7 @@ namespace DentalService
            
             emp = dt;
             apDate.SelectedDate = ap.AppointmentDate.Equals("") ? DateTime.Now : DateTime.ParseExact(ap.AppointmentDate, "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            endTime.Text = ap.EndTime;
             this.DataContext = ap;
             //status
             for (int i = 0; i < Status.Items.Count; i++)
@@ -63,17 +64,17 @@ namespace DentalService
         {
             try
             {
-                //get data, run sql update data
                 var screen = new Employee.EmployeeWindow(connect, emp);
-                DateTime? selectedDate = apDate.SelectedDate;
-                string newDate = selectedDate.Value.ToString("yyyy-MM-dd");
-                if(selectedDate.Value.ToString("dd-MM-yyyy")!= app.AppointmentDate)
+                //circle deadlock
+                //check endtime change
+                string newE = endTime.Text;
+                if (newE != app.EndTime)
                 {
                     var sql = @"
-                            exec sp_Edit_APDATE  @id,@newDate";
+                            exec sp_UPDATE_APPOINTMENT_T @id,@newEnd";
                     var command = new SqlCommand(sql, connection);
                     command.Parameters.Add("@id", SqlDbType.Int).Value = app.AppointmentId;
-                    command.Parameters.Add("@newDate", SqlDbType.VarChar).Value = newDate;
+                    command.Parameters.Add("@newEnd", SqlDbType.VarChar).Value = newE;
                     int rowsAffected = command.ExecuteNonQuery();
 
                     if (rowsAffected > 0)
@@ -89,31 +90,57 @@ namespace DentalService
                 }
                 else
                 {
-                    //get data of information
-                    int newDentistID = 0;
-                    int.TryParse(dent.Text, out newDentistID);
-                    var sql = @"
-                              exec sp_Edit_APDENTIST @id,@newDentist";
-                    var command = new SqlCommand(sql, connection);
-                    command.Parameters.Add("@id", SqlDbType.Int).Value = app.AppointmentId;
-                    command.Parameters.Add("@newDentist", SqlDbType.Int).Value = newDentistID;
-                    int rowsAffected = command.ExecuteNonQuery();
+                    //get data, run sql update data
 
-                    if (rowsAffected > 0)
+                    DateTime? selectedDate = apDate.SelectedDate;
+                    string newDate = selectedDate.Value.ToString("yyyy-MM-dd");
+                    if (selectedDate.Value.ToString("dd-MM-yyyy") != app.AppointmentDate)
                     {
-                        MessageBox.Show("Update successful!");
-                        this.Close();
-                        screen.Show();
+                        var sql = @"
+                            exec sp_Edit_APDATE  @id,@newDate";
+                        var command = new SqlCommand(sql, connection);
+                        command.Parameters.Add("@id", SqlDbType.Int).Value = app.AppointmentId;
+                        command.Parameters.Add("@newDate", SqlDbType.VarChar).Value = newDate;
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Update successful!");
+                            this.Close();
+                            screen.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Update failed. No rows affected.");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Update failed. No rows affected.");
+                        //get data of information
+                        int newDentistID = 0;
+                        int.TryParse(dent.Text, out newDentistID);
+                        var sql = @"
+                              exec sp_Edit_APDENTIST @id,@newDentist";
+                        var command = new SqlCommand(sql, connection);
+                        command.Parameters.Add("@id", SqlDbType.Int).Value = app.AppointmentId;
+                        command.Parameters.Add("@newDentist", SqlDbType.Int).Value = newDentistID;
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Update successful!");
+                            this.Close();
+                            screen.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Update failed. No rows affected.");
+                        }
                     }
                 }
 
-           
-        }
-        catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}");
             }

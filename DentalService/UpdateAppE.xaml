@@ -37,7 +37,7 @@
         <TextBox x:Name="strTime" Grid.Row="8" Margin="5" FontSize="16" Text="{Binding StartTime}" />
 
         <Label Content="End time" Grid.Row="9" Margin="5" FontSize="16" FontWeight="Bold" />
-        <TextBox x:Name="endTime" Grid.Row="10" Margin="5" FontSize="16" Text="{Binding EndTime}" />
+        <TextBox x:Name="endTime" Grid.Row="10" Margin="5" FontSize="16"  />
 
         <Label Content="Status" Grid.Row="11" Margin="5" FontSize="16" FontWeight="Bold" />
         <ComboBox x:Name="Status" Grid.Row="12" Margin="5,1,605,0" >

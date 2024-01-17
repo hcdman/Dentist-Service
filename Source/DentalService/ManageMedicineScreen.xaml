@@ -1,0 +1,92 @@
+﻿<Window x:Class="DentalService.ManageMedicineScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DentalService"
+        mc:Ignorable="d"
+        Title="ManageMedicineScreen"
+        Height="600"
+        Width="1100">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="10">
+            <Button x:Name="btnAdd"
+                    Content="Add new medicine"
+                    Margin="5"
+                    Width="150"
+                    FontSize="16"
+                    Click="btnAdd_Click" />
+        </StackPanel>
+
+        <DataGrid x:Name="dgMedicines" Grid.Row="1" Margin="10" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Medicine ID" Binding="{Binding MedicineID}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name" Binding="{Binding MedicineName}" />
+                <DataGridTextColumn Header="Unit" Binding="{Binding Unit}" />
+                <DataGridTextColumn Header="Prescription" Binding="{Binding Prescription}" />
+                <DataGridTextColumn Header="Quantity" Binding="{Binding QuantityOnStock}" />
+                <DataGridTextColumn Header="Expiration Date" Binding="{Binding ExpirationDate}" />
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                <!-- Delete medicine -->
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnDelete" Content="Delete" Click="btnDelete_Click" Margin="10" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Update">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnUpdate" Content="Update" Click="btnUpdate_Click" Margin="10"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+            
+        </DataGrid>
+
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Margin="10">
+            <Label Content="Expired Medicines:" Margin="5" />
+            <ListBox x:Name="lbExpiredMedicines" Width="200" Height="100" Margin="5">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0} - {1}">
+                                        <Binding Path="MedicineName" />
+                                        <Binding Path="QuantityOnStock" />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Button x:Name="btnDeleteExpired"
+                    Content="Delete Expired"
+                    Margin="5"
+                    Width="120"
+                    Click="btnDeleteExpired_Click"
+                    Height="35" />
+        </StackPanel>
+    </Grid>
+</Window>

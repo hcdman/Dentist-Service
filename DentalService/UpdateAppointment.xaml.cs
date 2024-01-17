@@ -28,6 +28,7 @@ namespace DentalService
             connect = cn;
             dentist = dt;
             apDate.SelectedDate = ap.AppointmentDate.Equals("") ? DateTime.Now : DateTime.ParseExact(ap.AppointmentDate, "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            endTime.Text = ap.EndTime;
             this.DataContext = ap;
             //status
             for (int i = 0; i < Status.Items.Count; i++)
